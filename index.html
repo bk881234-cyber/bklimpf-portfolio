@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | BKLimpf</title>
+    <meta name="description" content="UX/UI / Website / Graphic Designer Portfolio.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="page-background"></div>
+
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <img src="https://static.wixstatic.com/media/cf309e_a8a7f28cb04643eaa3a285267d0667de~mv2.png" alt="BK Logo" class="header-logo" onerror="this.src=''; this.alt='BK'; this.style.fontSize='24px'; this.style.fontWeight='700';">
+            </a>
+            <nav class="desktop-nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#" class="nav-link">More</a>
+            </nav>
+            <div class="social-icons">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <img src="https://static.wixstatic.com/media/cf309e_a8a7f28cb04643eaa3a285267d0667de~mv2.png" alt="BK Logo" class="hero-logo" onerror="this.style.display='none';">
+                <h1 class="hero-title">UX/UI / Website / Graphic Designer Portfolio.</h1>
+                <a href="./portfolio.pdf" download class="btn-pdf">PDF Download</a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-section">
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be dynamically injected here to match the 4-column layout -->
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container about-container">
+                <!-- Left Column: Info & Hobbies -->
+                <div class="about-left">
+                    <h2 class="about-name">Lim Byung Kwon</h2>
+                    <div class="about-info">
+                        <p>1988. 12. 28</p>
+                        <p>010-8728-8635</p>
+                        <p>bkbk8688@naver.com</p>
+                    </div>
+                    
+                    <h3 class="about-subheading">HOBBIES</h3>
+                    <div class="hobbies-grid">
+                        <div class="hobby-item">
+                            <img src="https://static.wixstatic.com/media/cf309e_52fa6c53aba64020a865290dd99ba1b7~mv2.png" alt="요리 하기">
+                            <span>요리 하기</span>
+                        </div>
+                        <div class="hobby-item">
+                            <img src="https://static.wixstatic.com/media/cf309e_b2733998a63c4a58ad1c15a5a64ab17e~mv2.png" alt="여행 하기">
+                            <span>여행 하기</span>
+                        </div>
+                        <div class="hobby-item">
+                            <img src="https://static.wixstatic.com/media/cf309e_16a8979307154941812a21bfab44aa9f~mv2.png" alt="운동 하기">
+                            <span>운동 하기</span>
+                        </div>
+                        <div class="hobby-item">
+                            <img src="https://static.wixstatic.com/media/cf309e_3ead8caca29a4743b7ef14e6a35e6436~mv2.png" alt="사진 찍기">
+                            <span>사진 찍기</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Column: Character -->
+                <div class="about-center">
+                    <div class="character-wrapper">
+                        <img class="dog-img" src="https://static.wixstatic.com/media/cf309e_1cea81a6d2fa45a4a902488a14e2538b~mv2.png" alt="Dog">
+                        <img class="character-img" src="https://static.wixstatic.com/media/cf309e_1e6277da1c5e4b6a9d33001e85626ace~mv2.png" alt="BK Profile">
+                    </div>
+                </div>
+
+                <!-- Right Column: Skills -->
+                <div class="about-right">
+                    <h3 class="about-subheading">SKILLS</h3>
+                    <div class="skills-list">
+                        <p>Photoshop</p>
+                        <p>Illustrator</p>
+                        <p>XD</p>
+                        <p>Figma</p>
+                        <p>After Effects</p>
+                        <p>AI 서비스 디자인 활용</p>
+                    </div>
+                    
+                    <hr class="skills-divider">
+                    
+                    <div class="skill-detail">
+                        <h4>UI/UX Design</h4>
+                        <p>다양한 UI 디자인 시안을 작업하여 트랜드에 맞는<br>어플리케이션 제작 가능.</p>
+                    </div>
+                    <div class="skill-detail">
+                        <h4>Graphic Design</h4>
+                        <p>3D 같은 2D를 완벽하게 구현! 포토샵을 통해서<br>모든 것을 그릴 수 있다는 자신감!</p>
+                    </div>
+                    <div class="skill-detail">
+                        <h4>Marketing Advertising</h4>
+                        <p>게임, 브랜드, 쇼핑몰, 소셜 콘텐츠, 옥외 광고 등<br>다양한 디지털 광고매체 제작 경험.</p>
+                    </div>
+                    <div class="skill-detail">
+                        <h4>AI 서비스 디자인 활용</h4>
+                        <p>생성형 AI를 활용한 효율적인 디자인 작업 및<br>트렌디한 서비스 UI/UX 설계 능숙.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025. Byungkwon Lim All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

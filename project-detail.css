@@ -1,0 +1,117 @@
+/* project-detail.css — white background, full-width Wix-style */
+
+body.project-page {
+    background: #ffffff;
+    color: #333333;
+}
+
+/* Override site-footer for project page */
+body.project-page .site-footer {
+    background-color: #fff;
+    border-top: 1px solid #eeeeee;
+}
+
+/* Page wrapper */
+.project-page-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* Title bar — hidden per user preference */
+.project-title-bar {
+    display: none;
+}
+
+/* Full-width stacked images — matches Wix layout */
+.project-images {
+    width: 100%;
+}
+
+.project-images img {
+    width: 100%;
+    display: block;
+    margin: 0;
+    line-height: 0;
+}
+
+/* Character grid for 크로노오디세이 6-image grid */
+.project-images.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
+.project-images.character-grid img {
+    width: 100%;
+    height: auto;
+}
+
+/* Section text blocks (text OUTSIDE images) */
+.project-section {
+    padding: 70px 40px;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #fafafa;
+}
+
+.project-section h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 15px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.project-section p {
+    font-size: 1rem;
+    color: #666666;
+    line-height: 1.8;
+    margin: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Footer / back button */
+.project-footer {
+    text-align: center;
+    padding: 70px 0 80px;
+    border-top: 1px solid #eeeeee;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 14px 44px;
+    background-color: #333333;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #111111;
+}
+
+@media (max-width: 768px) {
+    .project-title-bar h2 {
+        font-size: 1.6rem;
+    }
+    .project-title-bar {
+        padding: 40px 20px 30px;
+    }
+    .project-section {
+        padding: 50px 20px;
+    }
+    .project-images.character-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .project-images.character-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,5 @@
+scrape.py
+extract.py
+fix_data.js
+scraped_images.json
+extracted_text.txt
