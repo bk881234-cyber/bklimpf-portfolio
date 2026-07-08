@@ -29,9 +29,13 @@ body.project-page .site-footer {
 
 .project-images img {
     width: 100%;
+    height: auto;
     display: block;
-    margin: 0;
-    line-height: 0;
+    margin: 0 auto 70px auto; /* 70px bottom margin for raw sequential images */
+}
+
+.project-images img.img-before-text {
+    margin: 0 auto 20px auto; /* Tight bottom margin when description text follows immediately */
 }
 
 /* Character grid for 크로노오디세이 6-image grid */
@@ -72,11 +76,61 @@ body.project-page .site-footer {
     margin: 0 auto;
 }
 
+/* Live site section (Fitters Studio 등 실제 서비스 프로젝트) */
+.project-live-section {
+    padding: 90px 40px;
+    text-align: center;
+    background: #fff;
+    border-top: 1px solid #f0f0f0;
+}
+
+.project-live-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #e03030;
+    border: 1px solid #e03030;
+    padding: 6px 16px;
+    margin-bottom: 28px;
+}
+
+.project-live-section h3 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.project-live-section p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 44px;
+}
+
+.btn-visit-site {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    padding: 16px 44px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+}
+
+.btn-visit-site:hover {
+    background: #333;
+}
+
 /* Footer / back button */
 .project-footer {
     text-align: center;
     padding: 70px 0 80px;
-    border-top: 1px solid #eeeeee;
 }
 
 .back-btn {

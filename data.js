@@ -1,22 +1,23 @@
 const imageUrls = [
-    "https://static.wixstatic.com/media/cf309e_274514ae4ddf4f8daebab3a4dcb38079~mv2.png",  // 0: GameAIfy
-    "https://static.wixstatic.com/media/cf309e_c863943301c14063af889e10f3a00a62~mv2.png",  // 1: 엔픽셀 기업문화 IR
-    "https://static.wixstatic.com/media/cf309e_bb47044c585a4a5b82ea8e6331f04f0b~mv2.png",  // 2: 그랑사가 게임 콘텐츠
-    "https://static.wixstatic.com/media/cf309e_5bb155684e744b5a93fa5da7f2a17508~mv2.png",  // 3: 그랑사가 SNS
-    "https://static.wixstatic.com/media/cf309e_3995dbde325644a8a0e7d7456d8c1986~mv2.png",  // 4: 크로노오디세이
-    "https://static.wixstatic.com/media/cf309e_dc16a328ab664fa9b5fe40dd8a509a64~mv2.png",  // 5: BMW
-    "https://static.wixstatic.com/media/cf309e_53a781ab867e4f55bc4bacc97b6f4822~mv2.png",  // 6: Canon
-    "https://static.wixstatic.com/media/cf309e_5feda5a1457e49d395bc9d147c39c998~mv2.png",  // 7: 바쉐론 콘스탄틴
-    "https://static.wixstatic.com/media/cf309e_1076f07272664e7d8de148d13618e804~mv2.png",  // 8: 헤렌
-    "https://static.wixstatic.com/media/cf309e_f3d9fa18e40b4ff3b6333b56de6ce6ce~mv2.png",  // 9: 프레쉬
-    "https://static.wixstatic.com/media/cf309e_41f3339343344acba761672086f368d1~mv2.png",  // 10: 델리
-    "https://static.wixstatic.com/media/cf309e_d31c55d580e940ffa1478c37c6353653~mv2.png",  // 11: Hamll
-    "https://static.wixstatic.com/media/cf309e_43964ac7bfb24deb953b36ab48246ee6~mv2.png",  // 12: 콘트라
-    "https://static.wixstatic.com/media/cf309e_bf362104fa9545a793b22e4bcd23573a~mv2.png",  // 13: NCsoft
-    "https://static.wixstatic.com/media/cf309e_b0889412b4c44f478e03b41cd62d2e7b~mv2.png",  // 14: 청량
-    "https://static.wixstatic.com/media/cf309e_28b33cbd0e704aa58861b7537b3ffcb8~mv2.png",  // 15: 테라
-    "https://static.wixstatic.com/media/cf309e_0f7f3680c88745e4b5d27dda59b7f872~mv2.png",  // 16: 포트리스
-    "https://static.wixstatic.com/media/cf309e_aa198842a9ab49bb966c1f72e756aeb0~mv2.png"   // 17: 검은사막
+    "assets/ai_driven_th.jpg",  // 0: Web & Brand by AI
+    "https://static.wixstatic.com/media/cf309e_274514ae4ddf4f8daebab3a4dcb38079~mv2.png",  // 1: GameAIfy
+    "https://static.wixstatic.com/media/cf309e_c863943301c14063af889e10f3a00a62~mv2.png",  // 2: 엔픽셀 기업문화 IR
+    "https://static.wixstatic.com/media/cf309e_bb47044c585a4a5b82ea8e6331f04f0b~mv2.png",  // 3: 그랑사가 게임 콘텐츠
+    "https://static.wixstatic.com/media/cf309e_5bb155684e744b5a93fa5da7f2a17508~mv2.png",  // 4: 그랑사가 SNS
+    "https://static.wixstatic.com/media/cf309e_3995dbde325644a8a0e7d7456d8c1986~mv2.png",  // 5: 크로노오디세이
+    "https://static.wixstatic.com/media/cf309e_dc16a328ab664fa9b5fe40dd8a509a64~mv2.png",  // 6: BMW
+    "https://static.wixstatic.com/media/cf309e_53a781ab867e4f55bc4bacc97b6f4822~mv2.png",  // 7: Canon
+    "https://static.wixstatic.com/media/cf309e_5feda5a1457e49d395bc9d147c39c998~mv2.png",  // 8: 바쉐론 콘스탄틴
+    "https://static.wixstatic.com/media/cf309e_1076f07272664e7d8de148d13618e804~mv2.png",  // 9: 헤렌
+    "https://static.wixstatic.com/media/cf309e_f3d9fa18e40b4ff3b6333b56de6ce6ce~mv2.png",  // 10: 프레쉬
+    "https://static.wixstatic.com/media/cf309e_41f3339343344acba761672086f368d1~mv2.png",  // 11: 델리
+    "https://static.wixstatic.com/media/cf309e_d31c55d580e940ffa1478c37c6353653~mv2.png",  // 12: Hamll
+    "https://static.wixstatic.com/media/cf309e_43964ac7bfb24deb953b36ab48246ee6~mv2.png",  // 13: 콘트라
+    "https://static.wixstatic.com/media/cf309e_bf362104fa9545a793b22e4bcd23573a~mv2.png",  // 14: NCsoft
+    "https://static.wixstatic.com/media/cf309e_b0889412b4c44f478e03b41cd62d2e7b~mv2.png",  // 15: 청량
+    "https://static.wixstatic.com/media/cf309e_28b33cbd0e704aa58861b7537b3ffcb8~mv2.png",  // 16: 테라
+    "https://static.wixstatic.com/media/cf309e_0f7f3680c88745e4b5d27dda59b7f872~mv2.png",  // 17: 포트리스
+    "https://static.wixstatic.com/media/cf309e_aa198842a9ab49bb966c1f72e756aeb0~mv2.png"   // 18: 검은사막
 ];
 
 const backButtonHtml = `
@@ -25,6 +26,78 @@ const backButtonHtml = `
     </div>`;
 
 const projectsData = [
+    {
+        title: "Web & Brand by AI",
+        htmlContent: `
+            <div class="project-page-wrapper">
+                <div class="project-title-bar">
+                    <h2>Web & Brand by AI</h2>
+                </div>
+                <div class="project-images">
+                    <!-- Main Hero Header Image -->
+                    <img src="assets/ai_driven_01.jpg" alt="Web & Brand by AI Overview">
+
+                    <!-- 1st Project: Fitters Studio Images -->
+                    <img src="assets/ai_driven_02.jpg" alt="Fitters Studio Screen 1">
+                    <img src="assets/ai_driven_03.jpg" class="img-before-text" alt="Fitters Studio Screen 2">
+
+                    <!-- 1st Project: Fitters Studio Inline Info (Above Button) -->
+                    <div class="ai-project-inline-info">
+                        <div class="ai-tools-list">
+                            <span class="tool-badge photoshop">Photoshop</span>
+                            <span class="tool-badge figma">Figma</span>
+                            <span class="tool-badge claude">Claude Code</span>
+                        </div>
+                        <p class="ai-project-desc">
+                            Photoshop과 Figma를 활용하여 고품질의 비주얼 인터페이스를 가공하고, Claude Code AI 어시스턴트를 개발 엔진으로 융합하여 기획 및 프론트엔드 빌드 주기를 효율화한 하이브리드 웹 디자인 사이트입니다.
+                        </p>
+                    </div>
+                    
+                    <div class="visit-site-wrap">
+                        <a href="https://www.fittersstudio.com/" target="_blank" class="btn-visit-site">
+                            <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>Fitters Studio 방문하기
+                        </a>
+                    </div>
+
+                    <!-- 2nd Project: OGD Market Images -->
+                    <img src="assets/ai_driven_04.jpg" alt="OGD Market Screen 1">
+                    <img src="assets/ai_driven_05.jpg" class="img-before-text" alt="OGD Market Screen 2">
+
+                    <!-- 2nd Project: OGD Market Inline Info (Above Button) -->
+                    <div class="ai-project-inline-info">
+                        <div class="ai-tools-list">
+                            <span class="tool-badge antigravity">Antigravity</span>
+                            <span class="tool-badge stitch">Stitch</span>
+                            <span class="tool-badge claude">Claude Code</span>
+                        </div>
+                        <p class="ai-project-desc">
+                            독자적인 에이전트 Antigravity와 고성능 Stitch 프레임워크 환경, 그리고 Claude Code의 자동화 개발 조력 역량에 조화롭게 연계하여 복잡한 e-Commerce 마켓플레이스 서비스를 신속하게 구축했습니다.
+                        </p>
+                    </div>
+                    
+                    <div class="visit-site-wrap">
+                        <a href="https://ogd-market-new.vercel.app/" target="_blank" class="btn-visit-site">
+                            <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>OGD Platform 방문하기
+                        </a>
+                    </div>
+
+                    <!-- 3rd Project: Stockify Images -->
+                    <img src="assets/ai_driven_7.jpg" class="img-before-text" alt="Stockify Overview">
+
+                    <!-- 3rd Project: Stockify Inline Info (Bottom) -->
+                    <div class="ai-project-inline-info">
+                        <div class="ai-tools-list">
+                            <span class="tool-badge antigravity">Antigravity</span>
+                            <span class="tool-badge figma">Figma</span>
+                        </div>
+                        <p class="ai-project-desc">
+                            Figma로 디자인 프로토타입을 단단히 세팅하고, 지능형 AI 코딩 코파일럿 Antigravity의 유기적 가이드라인 및 코드 생성을 통해 모던하고 반응성이 뛰어난 브랜딩 서비스 구조를 설계하였습니다.
+                        </p>
+                    </div>
+                </div>
+                ${backButtonHtml}
+            </div>`
+    },
     {
         title: "GameAIfy",
         htmlContent: `

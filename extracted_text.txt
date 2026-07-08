@@ -1,0 +1,582 @@
+--- Page 3 ---
+생성형 AI UI/UX 구축 (2025)
+
+--- Page 4 ---
+생성형 AI GameAIfy UI/UX 구축
+GameAIfy는 앵커노드에서 개발한 생성형 AI 기반 
+게임 콘텐츠 제작 사이트입니다. 
+누구나 쉽고 직관적으로 사용할 수 있도록 최적화된 
+UI/UX를 목표로 개발하였습니다.
+
+--- Page 5 ---
+디자인 스타일 가이드
+ black
+900
+800
+700
+600
+500
+400
+300
+200
+white
+#1E1E21
+#A8A8A8
+#FFFFFF
+#161616
+#636363
+#E6E6E6
+#FCFCFD
+#000000 
+#2B2B2B
+#C6C6C6
+primary
+Primary
+secondary
+Secondary
+primary-light
+secondary-light
+primary-accent
+secondary-accent
+#330606
+#84080A
+#FF1F42
+#FFE500
+#FFD446
+#FFC600 
+
+--- Page 6 ---
+ 
+System
+Success Color
+#52C41A
+Success Color
+#52C41A
+Error Color
+#FF4D4F
+Error Color
+#FF4D4F
+Gradient 
+Colors
+Gradient Color
+#ffc600
+#FF7E7C
+Gradient 
+Color
+#ffc600
+#FF7E7C
+Gradient Box BG
+#161616
+50%
+#1C1914
+Gradient Box BG
+#161616
+50%
+#1C1914
+to bottom right
+Linear-gradient
+GNB Gradient 
+Colors
+GNB Gradient BOX Color
+GNB Gradient boder Color
+50%
+Linear 20%
+0%
+#FFC600
+0%(opacity)
+50%
+#FFC600
+50%(opacity)
+100%
+#FFC600
+0%(opacity)
+Linear 100%
+0%
+#FFC600
+0%(opacity)
+100%
+#FFC600
+50%(opacity)
+GNB Gradient BOX Color
+BG: #161616
+GNB Gradient boder Color
+50%
+Linear 20%
+0%
+#FFC600
+0%(opacity)
+50%
+#FFC600
+50%(opacity)
+100%
+#FFC600
+0%(opacity)
+Linear 100%
+0%
+#FFC600
+0%(opacity)
+100%
+#FFC600
+50%(opacity)
+Linear-gradient
+Explore
+AI Tools
+My Assets
+3/4
+Explore
+AI Tools
+My Assets
+3/4
+
+--- Page 7 ---
+H1
+Font Family : Plus Jakarta Sans (Google Font)
+EN
+H2
+SubTitle
+Body
+SubTitle
+SubTitle
+Body
+Body
+Body
+Body
+Body
+80px
+50px
+32px
+18px
+30px
+28px
+18px
+18px
+15px
+15px
+15px
+110%
+110%
+140%
+140%
+140%
+140%
+140%
+140%
+140%
+140%
+140%
+ExtraBold
+ExtraBold
+ExtraBold
+Bold
+ExtraBold
+Regular
+SemiBold
+Regular
+Bold
+Body
+14px
+140%
+Bold
+SemiBold
+Body
+14px
+140%
+SemiBold
+Regular
+Body
+Caption
+14px
+12px
+140%
+140%
+Regular
+Regular
+Solid
+배경색이 채워진 형태의 버튼으로 강조해야 할 주요 액션에 사용합니다.
+Icon
+직관적으로 보일 수 있도록 아이콘을 배치합니다.
+Textform
+길지 않은 텍스트를 입력할 때 사용합니다.
+variant =
+primary default
+Text
+000
+Generate
+80
+Text
+Cancel
+size =
+small
+medium
+large default
+Small
+Medium
+Large
+Font Size : 14px
+Font Size : 16px
+Font Size : 18px
+Credit
+Generate
+000
+Edit
+000
+가변
+가로길이는 크래딧 숫자에 따라 가변적이다
+316px
+AI Tools에 있는 생성 버튼은 갯수와 상관없이 316px로 길이 고정
+Icon / iconOnly =
+small 
+medium
+large
+Remix
+Remix
+Remix
+loading =
+false default
+true
+Text
+텍스트
+텍스트
+interaction =
+disabled
+normal
+hovered
+Text
+000
+Text
+000
+Text
+000
+Text
+Text
+오류가 일어났습니다.
+Invalid email format.
+정상 값 입니다.
+Status =
+Positive
+Negative
+
+--- Page 8 ---
+Main
+Feature
+Technique
+Posts
+EN
+Sign in
+Main
+Feature
+Technique
+Posts
+EN
+Sign in
+Experience GameAIfy combined with Nano Banana technology. Available now for FREE
+Try it for Free
+Experience GameAIfy combined with Nano Banana technology. Available now for FREE
+Try it for Free
+High-Quality
+Assets in Minutes, Not Days
+Built for game developers by game developers.
+Try for Free
+Try for Free
+Tools to Expand Your Creativity
+Remove Background
+Upscale
+Pixelate
+Scene Edit
+Turn Around
+랜딩 페이지
+GameAIfy의 랜딩 페이지는 방문자에게 프로젝트의 핵심 가치를 
+명확하게 전달하는 역할을 합니다. 이 페이지는 사용자가 
+서비스를 쉽게 이해하고, 실제로 콘텐츠를 생성하는 단계로 
+자연스럽게 넘어갈 수 있도록 설계되었습니다.
+
+--- Page 9 ---
+Tools to Expand Your Creativity
+Remove Background
+Upscale
+Pixelate
+Scene Edit
+Turn Around
+GameAIfy Dramatically Reduces Game 
+Production Time
+Easy to Draw
+You can easily create images even if you don't know 
+how to write 
+prompts well
+Easy to Edit
+Easily regenerate  by selecting a portion or extending 
+to an outer area
+Fit to Game
+It is optimized for producing game-ready output
+P i i g pl
+랜딩 페이지
+GameAIfy의 랜딩 페이지는 방문자에게 프로젝트의 핵심 가치를 
+명확하게 전달하는 역할을 합니다. 이 페이지는 사용자가 
+서비스를 쉽게 이해하고, 실제로 콘텐츠를 생성하는 단계로 
+자연스럽게 넘어갈 수 있도록 설계되었습니다.
+
+--- Page 10 ---
+Free
+$0 / month
+35 Bonus Credits / day 
+ Try image generation and basic features 
+ Wait for daily refill when credits run out
+Switch to Free
+Basic
+$15.00 
+$12.00 / month 
+Up to 20% off
+1,500 Bonus Credits / month 
+All Features Unlocked
+Get Plan
+Pro
+$45.00 
+$36.00 / month 
+Up to 20% off
+4,500 Bonus Credits / month 
+All Features Unlocked
+Get Plan
+Creative Inspiration Gallery
+Go to Explore
+Go to Explore
+COPYRIGHTⓒ Anchor Node. ALL RIGHTS RESERVED.
+Terms of Use
+Privacy Policy
+랜딩 페이지
+GameAIfy의 랜딩 페이지는 방문자에게 프로젝트의 핵심 가치를 
+명확하게 전달하는 역할을 합니다. 이 페이지는 사용자가 
+서비스를 쉽게 이해하고, 실제로 콘텐츠를 생성하는 단계로 
+자연스럽게 넘어갈 수 있도록 설계되었습니다.
+
+--- Page 11 ---
+생성형 AI 반응형 UI/UX 구축
+익스플로어 페이지는 반응형 웹 디자인을 적용해 어떤 기기에서 접속하든 최적화된 화면을 제공합니다.
+TOP
+Day
+Likes
+Explore
+Search
+Describe the game asset you’d like to generate
+Sora / side view object
+1:1
+x 1
+Queue Mode
+Shared on Explore
+Generate
+15
+Explore
+Nano Reference
+Free
+Image to Image
+Creative Reference
+Anchoring Reference
+Style Reference
+AI Tools
+Change Facial Expression
+Change Outfit
+Change Pose
+Change Style
+Character Turnaround
+Inpaint
+Pixelate
+Remove Background
+Remove Object
+Resize
+Smart Extend
+Time Shift
+My Assets
+4
+Train My Character
+1 Community
+EN
+Credits
+4500
+Terms of Service
+Privacy Policy
+© Anchor Node Co., Ltd.  All rights reserved.
+TOP
+Day
+Likes
+Describe the game asset you’d like to 
+generate.
+Side-View ...
+1:1
+Public
+Generate
+15
+Explore
+TOP
+Day
+Likes
+Describe the game asset you’d like to generate.
+Side-View ...
+1:1
+Public
+Generate
+15
+Explore
+Sign Up
+
+--- Page 12 ---
+생성형 AI 반응형 UI/UX 구축
+생성형 AI를 어렵게 느끼는 사용자를 위해 가이트팁을 구성하여 쉽게 사용할 수 있도록 설계
+TOP
+Day
+Likes
+Explore
+Search
+Describe the game asset you’d like to generate
+Sora / side view object
+1:1
+x 1
+Queue Mode
+Shared on Explore
+Generate
+15
+Explore
+Nano Reference
+Free
+Image to Image
+Creative Reference
+Anchoring Reference
+Style Reference
+AI Tools
+Change Facial Expression
+Change Outfit
+Change Pose
+Change Style
+Character Turnaround
+Inpaint
+Pixelate
+Remove Background
+Remove Object
+Resize
+Smart Extend
+Time Shift
+My Assets
+4
+Train My Character
+1 Community
+EN
+Credits
+4500
+Terms of Service
+Privacy Policy
+© Anchor Node Co., Ltd.  All rights reserved.
+Preset
+1:1
+x 1
+Generate
+sunset, downtown streets
+Craft a clear and vivid prompt
+Describe what’s happening, where it takes place, 
+and who or what is involved. 
+Enhance your prompt with style, technique, mood, or aesthetic 
+details to create the ideal image.
+Got It
+Craft a clear and vivid prompt
+Describe what’s happening, where it takes place, 
+and who or what is involved. 
+Enhance your prompt with style, technique, mood, or aesthetic 
+details to create the ideal image.
+Got It
+1 : 1
+1024 x 1024
+Craft a clear and vivid prompt
+Describe what’s happening, where it 
+takes place, and who or what is involved.
+Got It
+Public
+Private
+Craft a clear and vivid prompt
+Describe what’s happening, where it 
+takes place, and who or what is involved.
+Got It
+
+--- Page 13 ---
+GameAIfy 서브 콘텐츠
+Are you sure you want to delete your account?
+1. When you delete your account, all personal information will be immediately 
+and permanently erased.
+However, the following items will be retained for a legally mandated period:
+
+Payment and transaction history
+Service usage logs
+Customer service and dispute records
+
+2. Your account and all data will be deleted immediately upon request.
+This action is irreversible, and recovery will not be possible.
+
+3. If you have an active subscription at the time of deletion,
+your subscription will be automatically canceled and cannot be refunded or 
+restored.
+To continue using the service, you will need to register a new account and 
+subscribe again.
+I have read and understood the above, and I agree to delete my account.
+Delete My Account
+Keep My Account
+Your account has been successfully deleted.
+All personal information has been permanently erased, 
+and the account cannot be recovered.
+
+Any active subscription has also been canceled and will not be restored.
+To use the service again, please create a new account and subscribe.
+Delete account
+Verify Your GameAify Account email 
+Address.
+Dear User,  
+Please click the following link to complete the registration within 
+30minutes.
+ConFirm
+If this email was not intended for you,please ignore it. Failure 
+to do so may result in the misuse of your email. 
+Thank you!
+Dear User,
+Your request to delete your GameAIfy account has been 
+successfully processed at the following time:
+
+Request time: YYYY-MM-DD hh:mm:ss
+ 
+Your account has been permanently deleted and cannot be 
+recovered.
+Any canceled subscription will not be reinstated.
+
+Thank you for using GameAIfy.
+
+Sincerely,
+GameAIfy Support Team
+Enter Text Here
+Report
+Report
+Inappropriate Content
+Copyright Infringment
+Other
+약관 동의
+모두 동의
+[필수] 이용약관에 동의합니다.
+이용약관 보기
+[필수] 개인정보처리방침에 동의합니다.
+개인정보처리방침 보기
+[선택] 마케팅 정보 수신에 동의합니다.
+※ 저희 서비스의 이벤트, 프로모션, 뉴스레터 등 다양한 소식을 받아보실 수 있습니다.
+※ 마케팅 정보는 언제든지 수신 거부하실 수 있습니다.
+동의하고 가입하기
+생성한 이미지 또는 나의 결제 플랜 등 디테일하게 볼 수 있는 페이지들을 구성
+
+--- Page 14 ---
+GameAIfy 서브 콘텐츠
+특수 AI Tools 사용 조건과 순서를 보기 쉽게 나타내어 편리하게 사용할 수 있도록 표현
+
+--- Page 15 ---
+GameAIfy 서브 콘텐츠
+다양한 AI Tools을 예시이미지와 함께 나타내어 쉽게 사용할 수 있도록 표현
+
+--- Page 16 ---
+GameAIfy 공모전 & SNS 컨텐츠
+모객을 위해 다양한 공모전 및 SNS 이벤트 제작
+Experience GameAIfy combined with Nano Banana technology. Available now for FREE
+Try it for Free
+
+--- Page 17 ---
+GameAIfy 행사 구성 & 굿즈 제작
+PlayX4행사를 위한 행사 디자인 구성 & 다양한 굿즈 제작

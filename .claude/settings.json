@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python --version)",
+      "Bash(node --version)",
+      "Bash(python -m http.server 8080)",
+      "Bash(start python *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/index.html)",
+      "WebFetch(domain:www.bklimportfolio.com)",
+      "WebSearch",
+      "WebFetch(domain:static.wixstatic.com)",
+      "Read(//c/Users/bkbk8/.claude/projects/c--Users-bkbk8-portfolio----/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/project.html?id=5)",
+      "Bash(curl -s \"http://localhost:8080/data.js\")",
+      "Bash(curl -s \"http://localhost:8080/project-detail.css\")",
+      "Bash(vercel --version)",
+      "Bash(vercel whoami *)",
+      "Bash(vercel --yes)"
+    ]
+  }
+}

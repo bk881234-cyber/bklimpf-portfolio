@@ -1,0 +1,13 @@
+{
+  "name": "bklimpf-portfolio",
+  "version": "1.0.0",
+  "description": "Lim Byung Kwon Portfolio Renewal",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000",
+    "deploy": "vercel --prod --yes"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
