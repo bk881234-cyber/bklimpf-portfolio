@@ -148,17 +148,7 @@ header {
     transition: transform .8s cubic-bezier(.16,1,.3,1), filter .5s ease;
 }
 
-/* focus hover: other tiles step back under a thin dark veil (no transparency -> no milky look) */
-.portfolio-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background: rgba(32,24,21,.42);
-    opacity: 0;
-    transition: opacity .45s ease;
-}
+/* hover: only the tile under the cursor reacts (zoom + caption); the others stay untouched */
 .portfolio-item::after {
     content: "";
     position: absolute;
@@ -199,15 +189,12 @@ header {
 }
 
 @media (hover: hover) {
-    .portfolio-grid:hover .portfolio-item::before { opacity: 1; }
-    .portfolio-grid:hover .portfolio-item img { filter: saturate(.8); }
-    .portfolio-grid .portfolio-item:hover::before { opacity: 0; }
-    .portfolio-grid .portfolio-item:hover img { filter: none; transform: scale(1.04); }
+    .portfolio-item:hover img { transform: scale(1.04); }
     .portfolio-item:hover::after { opacity: 1; }
     .portfolio-item:hover .portfolio-cap { opacity: 1; transform: none; }
     .portfolio-item:hover .cap-n::after { transform: none; }
 }
-/* touch: captions always visible, no veil */
+/* touch: captions always visible */
 @media (hover: none) {
     .portfolio-item::after { opacity: .9; }
     .portfolio-cap { opacity: 1; transform: none; }

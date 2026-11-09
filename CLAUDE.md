@@ -27,7 +27,7 @@ Two pages share one data file; there is no routing or framework.
     - The intro flies a line along the logo's arrow shaft and reveals the logo with `clip-path` in sync. The shaft centre is 49.13% of the logo artwork height, measured from the 2000×1035 original.
     - After the intro: cursor light, a thumbnail trail (at most one per 350 ms, max 3 visible) and a custom cursor. All of these are disabled on `(pointer: coarse)`.
     - `body.home` turns the header into a transparent overlay until the hero is scrolled past.
-  - `script.js`: builds the 5-column square grid as `<a>` tiles with the focus hover.
+  - `script.js`: builds the 5-column square grid as `<a>` tiles. On hover only that tile reacts (slight zoom, bottom shade, number + title); the other tiles are never dimmed (the user rejected that).
     - On a plain left click it opens a white `.grid-trans` panel from the tile's rect (clip-path, thumbnail dissolving inside), then navigates after 760 ms. The detail page continues on the same white.
     - Modified clicks (Ctrl, middle click, etc.) navigate normally. `pageshow` removes the panel on back/forward.
   - `reveal.js`: shared IntersectionObserver that adds `.in` to `[data-reveal]` elements, with stagger from CSS var `--i`. Also used by About and the detail page.
@@ -40,7 +40,7 @@ Two pages share one data file; there is no routing or framework.
 
 - Keep the original light warm-grey hero background and the original brown logo image. No colour changes to the logo. The user rejected strong gradients, gold tones and a black background.
 - Logo must stay crisp. The hero uses `srcset` with `assets/logo-1000.png` / `assets/logo-2000.png`, so wide Retina screens get the 2000px original. The header uses `assets/logo-160.png`. Never apply 3D transforms, blur or opacity animation to the logo.
-- No milky/blurry effects. Dim with a dark veil, not transparency. Blur is only used briefly (2px, 0.4s) on hero trail thumbnails.
+- No milky/blurry effects, and do not dim the other grid tiles on hover. Blur is only used briefly (2px, 0.4s) on hero trail thumbnails.
 - Easing: enter `cubic-bezier(.16,1,.3,1)`, exit `cubic-bezier(.4,0,.2,1)`. No bounce or overshoot.
 - Palette: bg `#ccc8c2`/`#e6e2dc`, ink `#3e3431`/`#4f4540`, muted `#857870`, button `#4B3D39` (hover `#2f2523`).
 - Only hard-code text that appears outside portfolio images. Text baked into images stays in the image.

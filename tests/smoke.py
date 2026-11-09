@@ -160,10 +160,13 @@ def test_grid():
         p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(1200)
         assert p.evaluate("document.querySelectorAll('.portfolio-item.in').length") >= 10
         p.hover(".portfolio-item >> nth=7"); p.wait_for_timeout(600)
-        other = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item')[6],'::before').opacity")
-        mine = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item')[7],'::before').opacity")
-        img_op = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item img')[6]).opacity")
-        assert other == "1" and mine == "0" and img_op == "1", (other, mine, img_op)
+        # only the hovered tile reacts; the others stay exactly as they were (no veil, no desaturation)
+        other_veil = p.evaluate("""(()=>{const b=getComputedStyle(document.querySelectorAll('.portfolio-item')[6],'::before');
+                                     return b.content==='none'?'0':b.opacity})()""")
+        other_filter = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item img')[6]).filter")
+        assert other_veil in ("0", "") and other_filter == "none", (other_veil, other_filter)
+        mine_cap = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-cap')[7]).opacity")
+        assert mine_cap == "1", mine_cap
         assert p.evaluate("document.querySelectorAll('.portfolio-item')[7].querySelector('.cap-t').textContent") == "BMW"
 
 
