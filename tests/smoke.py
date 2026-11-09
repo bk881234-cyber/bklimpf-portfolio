@@ -182,6 +182,67 @@ def test_grid_click_stores_transition():
         assert d["index"] == 7 and d["src"] and all(k in d["rect"] for k in ("x", "y", "w", "h")), d
 
 
+# ---------------------------------------------------------------- Task 4
+def test_detail_page():
+    with page() as p:
+        errors = []; p.on("pageerror", lambda e: errors.append(str(e)))
+        p.goto(BASE + "/project.html?id=7"); p.wait_for_timeout(1500)
+        assert p.inner_text(".dp-hero h1").strip() == "BMW"
+        assert "08 / 20" in p.inner_text(".dp-top")
+        assert p.locator(".prev-btn").get_attribute("href") == "project.html?id=6"
+        assert p.locator(".next-btn").get_attribute("href") == "project.html?id=8"
+        assert p.locator(".back-btn").count() >= 1
+        assert p.locator(".dp-next").count() == 0
+        assert p.locator(".project-title-bar").count() == 0
+        p.mouse.wheel(0, 1500); p.wait_for_timeout(1300)
+        assert p.evaluate("parseFloat(getComputedStyle(document.querySelector('.dp-bar')).width)") > 0
+        assert p.evaluate("document.querySelectorAll('.project-images [data-reveal].in').length") >= 1
+        f = p.evaluate("getComputedStyle(document.querySelector('.project-images [data-reveal]')).filter")
+        assert f == "none", f                                   # no blur on detail reveals
+        assert errors == [], errors
+
+
+def test_detail_wraparound():
+    with page() as p:
+        p.goto(BASE + "/project.html?id=0"); p.wait_for_timeout(500)
+        assert p.locator(".prev-btn").get_attribute("href") == "project.html?id=19"
+        p.goto(BASE + "/project.html?id=19"); p.wait_for_timeout(500)
+        assert p.locator(".next-btn").get_attribute("href") == "project.html?id=0"
+
+
+def test_detail_info_row():
+    with page() as p:
+        p.goto(BASE + "/project.html?id=7"); p.wait_for_timeout(800)
+        txt = p.inner_text(".dp-info")
+        assert "BMW" in txt and "CLIENT" in txt, txt
+        assert "ROLE" not in txt, txt                             # empty field not rendered
+        p.goto(BASE + "/project.html?id=11"); p.wait_for_timeout(800)   # 프레쉬: no fields
+        assert p.locator(".dp-info").count() == 0
+
+
+def test_detail_bad_id():
+    for q in ["?id=99", "?id=abc", "?id=-1", ""]:
+        with page() as p:
+            errors = []; p.on("pageerror", lambda e: errors.append(str(e)))
+            p.goto(BASE + "/project.html" + q); p.wait_for_timeout(500)
+            assert "프로젝트를 찾을 수 없습니다" in p.inner_text("body"), q
+            assert p.locator(".project-side-nav").count() == 0, q
+            assert errors == [], (q, errors)
+
+
+def test_detail_transition():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(900)
+        p.locator(".portfolio-item").nth(7).click()
+        p.wait_for_url("**/project.html?id=7", wait_until="domcontentloaded")
+        p.wait_for_timeout(150)
+        assert p.locator(".dp-trans").count() == 1
+        assert p.evaluate("sessionStorage.getItem('bk-transition')") is None
+        p.wait_for_timeout(2000)
+        assert p.locator(".dp-trans").count() == 0
+
+
 # ---------------------------------------------------------------- runner
 def main(argv):
     global _pw, _browser

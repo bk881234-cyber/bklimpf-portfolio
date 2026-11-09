@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Detail | BKLimpf</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="project-detail.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -11,19 +12,21 @@
 </head>
 <body class="project-page">
 
-    <header id="header">
+    <div class="dp-bar" aria-hidden="true"></div>
+
+    <header id="header" class="dp-top">
         <div class="container nav-wrapper">
             <a href="index.html" class="logo">
-                <img src="https://static.wixstatic.com/media/cf309e_a8a7f28cb04643eaa3a285267d0667de~mv2.png" alt="BK Logo" class="header-logo">
+                <img src="assets/logo-160.png" alt="BK Logo" class="header-logo">
             </a>
             <nav class="desktop-nav">
                 <a href="index.html#home" class="nav-link">Home</a>
                 <a href="index.html#portfolio" class="nav-link active">Portfolio</a>
                 <a href="index.html#about" class="nav-link">About</a>
             </nav>
-            <div class="social-icons">
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <div class="dp-top-r">
+                <span class="dp-count"></span>
+                <a href="index.html#portfolio" class="dp-all">← ALL WORK</a>
             </div>
         </div>
     </header>
@@ -40,5 +43,6 @@
 
     <script src="data.js"></script>
     <script src="project.js"></script>
+    <script src="reveal.js"></script>
 </body>
 </html>

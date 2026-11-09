@@ -653,3 +653,85 @@ body.project-page .site-footer {
     width: 100%;
     margin: 0 !important;
 }
+
+/* ==========================================================================
+   Renewal (2026-11): top bar, progress bar, header + info row, reveals,
+   grid -> detail transition, side-nav restyle. Reference: detail-page.html
+   ========================================================================== */
+body.project-page header.dp-top {
+    background: rgba(255,255,255,.86);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(62,52,49,.08);
+    padding: 14px 0;
+}
+.dp-top .header-logo { height: 32px; }
+.dp-top-r { display: flex; align-items: center; gap: 18px; }
+.dp-count { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .15em; color: #857870; }
+.dp-all { color: #3e3431; text-decoration: none; font: 600 11px var(--font-main); letter-spacing: .14em; }
+.dp-all:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.dp-bar {
+    position: fixed; left: 0; top: 0; height: 2px; width: 0; z-index: 1100;
+    background: #4B3D39; pointer-events: none;
+}
+
+.dp-hero { max-width: 1100px; margin: 0 auto; padding: 72px 40px 48px; text-align: left; }
+.dp-no { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .2em; color: #857870; overflow: hidden; }
+.dp-hero h1 {
+    margin: 12px 0 28px; overflow: hidden;
+    font: 400 clamp(40px, 7vw, 88px)/1.05 Georgia, "Times New Roman", serif;
+    letter-spacing: -.02em; color: #3e3431;
+}
+.dp-info {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;
+    border-top: 1px solid rgba(62,52,49,.18); padding-top: 16px;
+}
+.dp-info div { overflow: hidden; font: 400 14px/1.5 var(--font-main); color: #3e3431; }
+.dp-info small { display: block; margin-bottom: 4px; font: 500 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .2em; color: #857870; }
+.dp-hero .up { display: inline-block; transform: translateY(105%); transition: transform 1s cubic-bezier(.16,1,.3,1); transition-delay: calc(var(--d, 0) * 90ms); }
+body.dp-go .dp-hero .up { transform: none; }
+
+/* image reveal: unmask from the bottom while drifting up; crisp (no blur) */
+.project-images img[data-reveal="img"] {
+    opacity: .001;
+    clip-path: inset(12% 0 0 0);
+    transform: translateY(40px);
+    transition: clip-path 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1), opacity .5s ease;
+    transition-delay: 0s;
+}
+.project-images img[data-reveal="img"].in { opacity: 1; clip-path: inset(0); transform: none; }
+
+.dp-trans {
+    position: fixed; z-index: 2000; pointer-events: none;
+    background-size: cover; background-position: center; background-color: #d3cec7;
+    transition: left .9s cubic-bezier(.76,0,.24,1), top .9s cubic-bezier(.76,0,.24,1), width .9s cubic-bezier(.76,0,.24,1), height .9s cubic-bezier(.76,0,.24,1), opacity .6s ease;
+}
+.dp-trans.is-out { opacity: 0; }
+
+.dp-missing { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 80px 24px; }
+.dp-missing h2 { font: 400 28px Georgia, serif; color: #3e3431; }
+
+/* side nav: same behaviour as before, new palette */
+.nav-arrow-box {
+    background: rgba(240,237,233,.85);
+    border-color: rgba(255,255,255,.6);
+    color: #3e3431;
+    box-shadow: 0 6px 20px rgba(60,45,36,.10);
+}
+.side-nav-btn:hover .nav-arrow-box { background: #4B3D39; color: #fff; box-shadow: 0 8px 25px rgba(60,45,36,.25); }
+.nav-preview-card { background: rgba(240,237,233,.94); box-shadow: 0 12px 35px rgba(60,45,36,.16); }
+.nav-preview-card .preview-direction { color: #857870; }
+.nav-preview-card .preview-title { color: #3e3431; }
+.back-btn { background: #4B3D39; }
+.back-btn:hover { background: #2f2523; }
+
+@media (max-width: 768px) {
+    .dp-hero { padding: 48px 20px 32px; }
+    .dp-info { grid-template-columns: 1fr 1fr; }
+    .dp-count { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .dp-hero .up { transform: none; transition: none; }
+    .project-images img[data-reveal="img"] { opacity: 1; clip-path: none; transform: none; transition: none; }
+}
