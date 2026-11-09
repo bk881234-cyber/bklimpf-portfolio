@@ -243,6 +243,20 @@ def test_detail_transition():
         assert p.locator(".dp-trans").count() == 0
 
 
+# ---------------------------------------------------------------- Task 5
+def test_about_and_polish():
+    with page() as p:
+        errors = []; p.on("pageerror", lambda e: errors.append(str(e)))
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(500)
+        html = p.content()
+        assert "트랜드" not in html and "트렌드" in html
+        assert p.request.get(BASE + "/assets/favicon.png").status == 200
+        p.locator("#about").scroll_into_view_if_needed(); p.wait_for_timeout(1400)
+        n = p.evaluate("document.querySelectorAll('#about [data-reveal].in').length")
+        assert n >= 3, n
+        assert errors == [], errors
+
+
 # ---------------------------------------------------------------- runner
 def main(argv):
     global _pw, _browser
