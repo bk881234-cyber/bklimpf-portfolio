@@ -71,6 +71,81 @@ def test_no_page_errors():
             assert errors == [], (path, errors)
 
 
+# ---------------------------------------------------------------- Task 2
+SHAFT = """()=>{const s=document.querySelector('.hero-stage').getBoundingClientRect(),
+     l=document.querySelector('.hero-path').getBoundingClientRect();
+     return ((l.top+l.height/2)-s.top)/s.height}"""
+
+
+def test_hero_intro():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        assert p.evaluate("document.getElementById('hero').classList.contains('is-lit')")
+        cp = p.evaluate("getComputedStyle(document.querySelector('.hero-reveal')).clipPath")
+        assert cp in ("none", "inset(0px)"), cp
+        nav = p.evaluate("[...document.querySelectorAll('#header nav a')].map(a=>a.textContent.trim())")
+        assert nav == ["Home", "Portfolio", "About"], nav
+        assert p.get_attribute("a.hero-btn", "href") == "./portfolio.pdf"
+        assert p.evaluate("document.querySelector('a.hero-btn').hasAttribute('download')")
+
+
+def test_hero_logo_assets():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        assert p.get_attribute("img.hero-logo", "src").endswith("assets/logo-1000.png")
+        t = p.evaluate("getComputedStyle(document.querySelector('.hero-stage')).transform")
+        assert t in ("none", "matrix(1, 0, 0, 1, 0, 0)"), t
+
+
+def test_hero_line_alignment():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(300)
+        r = p.evaluate(SHAFT)
+        assert abs(r - 0.4913) < 0.004, r
+
+
+def test_hero_resize_alignment():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        p.set_viewport_size({"width": 1024, "height": 700}); p.wait_for_timeout(200)
+        r = p.evaluate(SHAFT)
+        assert abs(r - 0.4913) < 0.004, r
+
+
+def test_hero_trail_rate():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        p.evaluate("""window.__t=[];window.__maxVis=0;new MutationObserver(()=>{
+            __maxVis=Math.max(__maxVis,document.querySelectorAll('.hero-trail .ti:not(.out)').length)})
+            .observe(document.querySelector('.hero-trail'),{childList:true,subtree:true,attributes:true});
+            new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(()=>__t.push(performance.now()))))
+            .observe(document.querySelector('.hero-trail'),{childList:true})""")
+        box = p.locator("#hero").bounding_box()
+        y = box["y"] + box["height"] * .8
+        p.mouse.move(box["x"] + 50, y)
+        for i in range(80):  # fast sweep
+            p.mouse.move(box["x"] + 50 + i * (box["width"] - 100) / 80, y); p.wait_for_timeout(16)
+        ts = p.evaluate("__t")
+        gaps = [b - a for a, b in zip(ts, ts[1:])]
+        assert len(ts) >= 2, ts
+        assert min(gaps) >= 345, gaps            # at most one thumbnail per 350ms
+        assert p.evaluate("__maxVis") <= 3, p.evaluate("__maxVis")
+
+
+def test_hero_reduced_motion():
+    with page(reduced=True) as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(100)
+        assert p.evaluate("document.getElementById('hero').classList.contains('is-lit')")
+
+
+def test_hero_touch_no_trail():
+    with page(touch=True) as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        assert p.evaluate("getComputedStyle(document.querySelector('.hero-cursor')).display") == "none"
+        p.mouse.move(100, 500); p.mouse.move(600, 500)
+        assert p.evaluate("document.querySelectorAll('.hero-trail .ti').length") == 0
+
+
 # ---------------------------------------------------------------- runner
 def main(argv):
     global _pw, _browser

@@ -6,24 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | BKLimpf</title>
     <meta name="description" content="UX/UI / Website / Graphic Designer Portfolio.">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hero.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body>
+<body class="home">
     <div class="page-background"></div>
 
     <header id="header">
         <div class="container nav-wrapper">
-            <a href="#" class="logo">
-                <img src="https://static.wixstatic.com/media/cf309e_a8a7f28cb04643eaa3a285267d0667de~mv2.png" alt="BK Logo" class="header-logo" onerror="this.src=''; this.alt='BK'; this.style.fontSize='24px'; this.style.fontWeight='700';">
+            <a href="#home" class="logo">
+                <img src="assets/logo-160.png" alt="BK Logo" class="header-logo">
             </a>
             <nav class="desktop-nav">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#about" class="nav-link">About</a>
-                <a href="#" class="nav-link">More</a>
             </nav>
             <div class="social-icons">
                 <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -33,12 +34,28 @@
     </header>
 
     <main>
-        <section id="home" class="hero-section">
-            <div class="hero-video"></div>
-            <div class="hero-content">
-                <img src="https://static.wixstatic.com/media/cf309e_a8a7f28cb04643eaa3a285267d0667de~mv2.png" alt="BK Logo" class="hero-logo" onerror="this.style.display='none';">
-                <h1 class="hero-title">UX/UI / Website / Graphic Designer Portfolio.</h1>
-                <a href="./portfolio.pdf" download class="btn-pdf">PDF Download</a>
+        <section id="home">
+            <div id="hero" class="hero">
+                <div class="hero-bg"></div>
+                <div class="hero-spot"></div>
+                <div class="hero-trail" aria-hidden="true"></div>
+                <div class="hero-stage">
+                    <div class="hero-path"></div>
+                    <div class="hero-line"></div>
+                    <div class="hero-reveal">
+                        <img src="assets/logo-1000.png" alt="BK Logo" class="hero-logo" width="1000" height="518">
+                        <div class="hero-sheen"></div>
+                        <div class="hero-glint"></div>
+                    </div>
+                    <div class="hero-tip"></div>
+                </div>
+                <div class="hero-meta">
+                    <span class="line"><span class="hero-name">LIM BYUNG KWON</span></span>
+                    <h1 class="line"><span class="hero-role">UX/UI · Website · Graphic Designer</span></h1>
+                    <span class="line hero-cta"><span><a href="./portfolio.pdf" download class="hero-btn"><span>PDF Download</span><i aria-hidden="true">↓</i></a></span></span>
+                </div>
+                <div class="hero-scroll" aria-hidden="true"></div>
+                <div class="hero-cursor" aria-hidden="true"><div class="ring"></div><div class="dot"></div><div class="hero-cursor-label"></div></div>
             </div>
         </section>
 
@@ -138,6 +155,7 @@
     </footer>
 
     <script src="data.js"></script>
+    <script src="hero.js"></script>
     <script src="script.js"></script>
 </body>
 
