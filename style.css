@@ -120,24 +120,6 @@ header {
     margin: 0;
 }
 
-.portfolio-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    max-width: 1260px;
-    margin: 0 auto 18px;
-}
-.portfolio-head h2 {
-    font: 400 clamp(28px, 3vw, 40px)/1 Georgia, "Times New Roman", serif;
-    color: #3e3431;
-    letter-spacing: -.01em;
-}
-.portfolio-head span {
-    font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace;
-    letter-spacing: .15em;
-    color: #857870;
-}
-
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -683,7 +665,6 @@ header {
     .container {
         max-width: 1300px;
     }
-    .portfolio-head,
     .portfolio-grid {
         max-width: 1360px;
     }
@@ -697,7 +678,6 @@ header {
     .container {
         max-width: 1500px;
     }
-    .portfolio-head,
     .portfolio-grid {
         max-width: 1560px;
     }
@@ -711,7 +691,6 @@ header {
     .container {
         max-width: 1720px;
     }
-    .portfolio-head,
     .portfolio-grid {
         max-width: 1800px;
     }

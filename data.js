@@ -193,7 +193,6 @@ const projectsData = [
     },
     {
         title: "GameAIfy",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -212,7 +211,6 @@ const projectsData = [
     },
     {
         title: "엔픽셀 기업문화 IR",
-        client: "NPIXEL",
         htmlContent: `
             <div class="project-page-wrapper npixel-ir-page">
                 <div class="project-title-bar">
@@ -230,7 +228,6 @@ const projectsData = [
     },
     {
         title: "그랑사가 게임 콘텐츠",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper gransaga-contents-page">
                 <div class="project-title-bar">
@@ -259,7 +256,6 @@ const projectsData = [
     },
     {
         title: "그랑사가 SNS",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper gransaga-sns-page">
                 <div class="project-title-bar">
@@ -278,7 +274,6 @@ const projectsData = [
     },
     {
         title: "크로노오디세이",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper chrono-page">
                 <div class="project-title-bar">
@@ -315,8 +310,6 @@ const projectsData = [
     },
     {
         title: "BMW",
-        client: "BMW",
-        category: "Brand",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -336,8 +329,6 @@ const projectsData = [
     },
     {
         title: "Canon",
-        client: "Canon",
-        category: "Brand",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -356,8 +347,6 @@ const projectsData = [
     },
     {
         title: "바쉐론 콘스탄틴",
-        client: "Vacheron Constantin",
-        category: "Brand",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -373,8 +362,6 @@ const projectsData = [
     },
     {
         title: "헤렌",
-        client: "HEREN",
-        category: "Brand",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -422,7 +409,6 @@ const projectsData = [
     },
     {
         title: "Hamll",
-        client: "현대Hmall",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -438,7 +424,6 @@ const projectsData = [
     },
     {
         title: "콘트라",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -453,8 +438,6 @@ const projectsData = [
     },
     {
         title: "NCsoft",
-        client: "NCSOFT",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -470,7 +453,6 @@ const projectsData = [
     },
     {
         title: "청량",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -486,7 +468,6 @@ const projectsData = [
     },
     {
         title: "테라",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -502,7 +483,6 @@ const projectsData = [
     },
     {
         title: "포트리스",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">
@@ -518,7 +498,6 @@ const projectsData = [
     },
     {
         title: "검은사막",
-        category: "Game",
         htmlContent: `
             <div class="project-page-wrapper">
                 <div class="project-title-bar">

@@ -6,8 +6,6 @@
     if (!grid) return;
 
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var count = document.getElementById('portfolioCount');
-    if (count) count.textContent = imageUrls.length + ' PROJECTS';
 
     imageUrls.forEach(function (url, index) {
         var title = projectsData[index] ? projectsData[index].title : 'Project ' + (index + 1);

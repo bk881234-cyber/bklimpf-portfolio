@@ -20,8 +20,8 @@ Two pages share one data file; there is no routing or framework.
 - `data.js` is the single source of truth, loaded first on both pages as plain globals:
   - `imageUrls[]` — grid thumbnails
   - `backButtonHtml` — shared "back to list" snippet
-  - `projectsData[]` — `{ title, htmlContent, client?, category?, role? }`. `htmlContent` is a template literal of HTML embedding `${backButtonHtml}`. Backticks or `${` inside it must stay escaped correctly.
-- **Index/detail pairing is positional**: `imageUrls[i]` ↔ `projectsData[i]` ↔ `project.html?id=i`. Adding or reordering a project means editing both arrays at the same index. Counts ("20 PROJECTS", "08 / 20") are computed from array length, never hard-coded.
+  - `projectsData[]` — `{ title, htmlContent }`. `htmlContent` is a template literal of HTML embedding `${backButtonHtml}`. Backticks or `${` inside it must stay escaped correctly.
+- **Index/detail pairing is positional**: `imageUrls[i]` ↔ `projectsData[i]` ↔ `project.html?id=i`. Adding or reordering a project means editing both arrays at the same index. The detail-page count ("08 / 20") is computed from array length, never hard-coded.
 - `index.html` loads scripts in this order: `data.js` → `hero.js` → `script.js` → `reveal.js`.
   - `hero.css` / `hero.js`: the hero.
     - The intro flies a line along the logo's arrow shaft and reveals the logo with `clip-path` in sync. The shaft centre is 49.13% of the logo artwork height, measured from the 2000×1035 original.
@@ -32,9 +32,8 @@ Two pages share one data file; there is no routing or framework.
     - Modified clicks (Ctrl, middle click, etc.) navigate normally. `pageshow` removes the panel on back/forward.
   - `reveal.js`: shared IntersectionObserver that adds `.in` to `[data-reveal]` elements, with stagger from CSS var `--i`. Also used by About and the detail page.
 - `project.html` + `project.js` + `project-detail.css`:
-  - `project.js` validates `?id` (`/^\d+$/`), injects `htmlContent`, and removes its `.project-title-bar`. It prepends a header with an info row; only fields with values render, and the row is omitted when all are empty.
+  - `project.js` validates `?id` (`/^\d+$/`) and injects `htmlContent`. Its own `.project-title-bar` stays hidden by CSS, so there is no title block above the images (the user removed it: serif headings did not fit).
   - It also marks images and text blocks for reveal, drives the top progress bar, and builds the prev/next side nav (wraps around).
-  - `alignHeader()` lines the header text up with the first image's left/right edge when the image is inset (the wrapper caps at 1920px). When images run full-bleed, it aligns with the site logo instead.
   - Per-project CSS (`.chrono-page`, `.vl-project-page`, `.gransaga-sns-page`, AI-project sections) assumes full-width images, so don't constrain image width globally.
 
 ## Design rules (from the user's feedback during the renewal)
@@ -45,4 +44,5 @@ Two pages share one data file; there is no routing or framework.
 - Easing: enter `cubic-bezier(.16,1,.3,1)`, exit `cubic-bezier(.4,0,.2,1)`. No bounce or overshoot.
 - Palette: bg `#ccc8c2`/`#e6e2dc`, ink `#3e3431`/`#4f4540`, muted `#857870`, button `#4B3D39` (hover `#2f2523`).
 - Only hard-code text that appears outside portfolio images. Text baked into images stays in the image.
+- No serif (명조) headings on the detail page or above the grid. The user removed them.
 - Respect `prefers-reduced-motion` (show final states immediately).

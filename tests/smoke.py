@@ -157,7 +157,6 @@ def test_grid():
         assert p.evaluate("getComputedStyle(document.querySelector('.portfolio-grid')).gap") == "4px"
         cols = p.evaluate("getComputedStyle(document.querySelector('.portfolio-grid')).gridTemplateColumns.split(' ').length")
         assert cols == 5, cols
-        assert "20 PROJECTS" in p.inner_text(".portfolio-section")
         p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(1200)
         assert p.evaluate("document.querySelectorAll('.portfolio-item.in').length") >= 10
         p.hover(".portfolio-item >> nth=7"); p.wait_for_timeout(600)
@@ -188,15 +187,6 @@ def test_grid_back_restores_clean():
         assert p.locator(".grid-trans").count() == 0
 
 
-def test_portfolio_heading_aligned():
-    with page(viewport=(2064, 1209)) as p:
-        p.goto(BASE + "/index.html"); p.wait_for_timeout(500)
-        assert p.inner_text(".portfolio-head h2").strip() == "Portfolio"
-        h = p.evaluate("document.querySelector('.portfolio-head h2').getBoundingClientRect().left")
-        g = p.evaluate("document.querySelector('.portfolio-grid').getBoundingClientRect().left")
-        assert abs(h - g) < 1, (h, g)
-
-
 def test_header_bg_after_small_scroll():
     with page() as p:
         p.goto(BASE + "/index.html"); p.wait_for_timeout(500)
@@ -217,13 +207,12 @@ def test_detail_page():
     with page() as p:
         errors = []; p.on("pageerror", lambda e: errors.append(str(e)))
         p.goto(BASE + "/project.html?id=7"); p.wait_for_timeout(1500)
-        assert p.inner_text(".dp-hero h1").strip() == "BMW"
         assert "08 / 20" in p.inner_text(".dp-top")
         assert p.locator(".prev-btn").get_attribute("href") == "project.html?id=6"
         assert p.locator(".next-btn").get_attribute("href") == "project.html?id=8"
         assert p.locator(".back-btn").count() >= 1
         assert p.locator(".dp-next").count() == 0
-        assert p.locator(".project-title-bar").count() == 0
+        assert not p.locator(".project-title-bar").is_visible()   # live hides the in-content title bar
         p.mouse.wheel(0, 1500); p.wait_for_timeout(1300)
         assert p.evaluate("parseFloat(getComputedStyle(document.querySelector('.dp-bar')).width)") > 0
         assert p.evaluate("document.querySelectorAll('.project-images [data-reveal].in').length") >= 1
@@ -240,16 +229,6 @@ def test_detail_wraparound():
         assert p.locator(".next-btn").get_attribute("href") == "project.html?id=0"
 
 
-def test_detail_info_row():
-    with page() as p:
-        p.goto(BASE + "/project.html?id=7"); p.wait_for_timeout(800)
-        txt = p.inner_text(".dp-info")
-        assert "BMW" in txt and "CLIENT" in txt, txt
-        assert "ROLE" not in txt, txt                             # empty field not rendered
-        p.goto(BASE + "/project.html?id=11"); p.wait_for_timeout(800)   # 프레쉬: no fields
-        assert p.locator(".dp-info").count() == 0
-
-
 def test_detail_bad_id():
     for q in ["?id=99", "?id=abc", "?id=-1", ""]:
         with page() as p:
@@ -258,19 +237,6 @@ def test_detail_bad_id():
             assert "프로젝트를 찾을 수 없습니다" in p.inner_text("body"), q
             assert p.locator(".project-side-nav").count() == 0, q
             assert errors == [], (q, errors)
-
-
-def test_detail_header_aligned():
-    with page(viewport=(2064, 1209)) as p:                                  # user's screen: wrapper caps at 1920 -> inset images
-        p.goto(BASE + "/project.html?id=1"); p.wait_for_timeout(1500)
-        t = p.evaluate("document.querySelector('.dp-hero h1').getBoundingClientRect().left")
-        i = p.evaluate("document.querySelector('.project-page-wrapper img').getBoundingClientRect().left")
-        assert i > 24 and abs(t - i) < 1.5, (t, i)
-    with page() as p:                                                       # 1440: BMW images run full-bleed
-        p.goto(BASE + "/project.html?id=7"); p.wait_for_timeout(1500)
-        t = p.evaluate("document.querySelector('.dp-hero h1').getBoundingClientRect().left")
-        l = p.evaluate("document.querySelector('#header .header-logo').getBoundingClientRect().left")
-        assert abs(t - l) < 1.5, (t, l)
 
 
 # ---------------------------------------------------------------- Task 5
@@ -298,12 +264,6 @@ def test_hero_logo_hidpi():  # logo bitmap must be >= displayed device pixels on
         assert nat >= shown, (nat, shown)
 
 
-def test_detail_subtitle_kept():
-    with page() as p:
-        p.goto(BASE + "/project.html?id=6"); p.wait_for_timeout(800)
-        assert "게임 공식 웹사이트 기획 및 디자인" in p.inner_text(".dp-hero")
-
-
 def test_hero_cursor_visible_until_custom_cursor():
     with page() as p:
         p.goto(BASE + "/index.html"); p.wait_for_timeout(300)
@@ -323,6 +283,17 @@ def test_hero_reduced_motion_no_trail():
         for i in range(60):
             p.mouse.move(box["x"] + 50 + i * (box["width"] - 100) / 60, y); p.wait_for_timeout(30)
         assert p.evaluate("document.querySelectorAll('.hero-trail .ti').length") == 0
+
+
+def test_no_serif_headings():   # user: drop the serif title block on detail pages and the "Portfolio" word
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(400)
+        assert p.locator(".portfolio-head").count() == 0
+        assert "Portfolio" not in p.inner_text(".portfolio-section")
+        p.goto(BASE + "/project.html?id=0"); p.wait_for_timeout(600)
+        assert p.locator(".dp-hero").count() == 0
+        assert "PROJECT 01" not in p.inner_text("main")
+        assert "01 / 20" in p.inner_text(".dp-top")
 
 
 # ---------------------------------------------------------------- runner
