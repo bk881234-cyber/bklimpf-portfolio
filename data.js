@@ -1,22 +1,24 @@
 const imageUrls = [
-    "https://static.wixstatic.com/media/cf309e_274514ae4ddf4f8daebab3a4dcb38079~mv2.png",  // 0: GameAIfy
-    "https://static.wixstatic.com/media/cf309e_c863943301c14063af889e10f3a00a62~mv2.png",  // 1: 엔픽셀 기업문화 IR
-    "https://static.wixstatic.com/media/cf309e_bb47044c585a4a5b82ea8e6331f04f0b~mv2.png",  // 2: 그랑사가 게임 콘텐츠
-    "https://static.wixstatic.com/media/cf309e_5bb155684e744b5a93fa5da7f2a17508~mv2.png",  // 3: 그랑사가 SNS
-    "https://static.wixstatic.com/media/cf309e_3995dbde325644a8a0e7d7456d8c1986~mv2.png",  // 4: 크로노오디세이
-    "https://static.wixstatic.com/media/cf309e_dc16a328ab664fa9b5fe40dd8a509a64~mv2.png",  // 5: BMW
-    "https://static.wixstatic.com/media/cf309e_53a781ab867e4f55bc4bacc97b6f4822~mv2.png",  // 6: Canon
-    "https://static.wixstatic.com/media/cf309e_5feda5a1457e49d395bc9d147c39c998~mv2.png",  // 7: 바쉐론 콘스탄틴
-    "https://static.wixstatic.com/media/cf309e_1076f07272664e7d8de148d13618e804~mv2.png",  // 8: 헤렌
-    "https://static.wixstatic.com/media/cf309e_f3d9fa18e40b4ff3b6333b56de6ce6ce~mv2.png",  // 9: 프레쉬
-    "https://static.wixstatic.com/media/cf309e_41f3339343344acba761672086f368d1~mv2.png",  // 10: 델리
-    "https://static.wixstatic.com/media/cf309e_d31c55d580e940ffa1478c37c6353653~mv2.png",  // 11: Hamll
-    "https://static.wixstatic.com/media/cf309e_43964ac7bfb24deb953b36ab48246ee6~mv2.png",  // 12: 콘트라
-    "https://static.wixstatic.com/media/cf309e_bf362104fa9545a793b22e4bcd23573a~mv2.png",  // 13: NCsoft
-    "https://static.wixstatic.com/media/cf309e_b0889412b4c44f478e03b41cd62d2e7b~mv2.png",  // 14: 청량
-    "https://static.wixstatic.com/media/cf309e_28b33cbd0e704aa58861b7537b3ffcb8~mv2.png",  // 15: 테라
-    "https://static.wixstatic.com/media/cf309e_0f7f3680c88745e4b5d27dda59b7f872~mv2.png",  // 16: 포트리스
-    "https://static.wixstatic.com/media/cf309e_aa198842a9ab49bb966c1f72e756aeb0~mv2.png"   // 17: 검은사막
+    "assets/ai_driven_th.jpg",  // 0: Web & Brand by AI
+    "assets/VL_project_th.png", // 1: Value Life Project
+    "https://static.wixstatic.com/media/cf309e_274514ae4ddf4f8daebab3a4dcb38079~mv2.png",  // 2: GameAIfy
+    "https://static.wixstatic.com/media/cf309e_c863943301c14063af889e10f3a00a62~mv2.png",  // 3: 엔픽셀 기업문화 IR
+    "https://static.wixstatic.com/media/cf309e_bb47044c585a4a5b82ea8e6331f04f0b~mv2.png",  // 3: 그랑사가 게임 콘텐츠
+    "https://static.wixstatic.com/media/cf309e_5bb155684e744b5a93fa5da7f2a17508~mv2.png",  // 4: 그랑사가 SNS
+    "https://static.wixstatic.com/media/cf309e_3995dbde325644a8a0e7d7456d8c1986~mv2.png",  // 5: 크로노오디세이
+    "https://static.wixstatic.com/media/cf309e_dc16a328ab664fa9b5fe40dd8a509a64~mv2.png",  // 6: BMW
+    "https://static.wixstatic.com/media/cf309e_53a781ab867e4f55bc4bacc97b6f4822~mv2.png",  // 7: Canon
+    "https://static.wixstatic.com/media/cf309e_5feda5a1457e49d395bc9d147c39c998~mv2.png",  // 8: 바쉐론 콘스탄틴
+    "https://static.wixstatic.com/media/cf309e_1076f07272664e7d8de148d13618e804~mv2.png",  // 9: 헤렌
+    "https://static.wixstatic.com/media/cf309e_f3d9fa18e40b4ff3b6333b56de6ce6ce~mv2.png",  // 10: 프레쉬
+    "https://static.wixstatic.com/media/cf309e_41f3339343344acba761672086f368d1~mv2.png",  // 11: 델리
+    "https://static.wixstatic.com/media/cf309e_d31c55d580e940ffa1478c37c6353653~mv2.png",  // 12: Hamll
+    "https://static.wixstatic.com/media/cf309e_43964ac7bfb24deb953b36ab48246ee6~mv2.png",  // 13: 콘트라
+    "https://static.wixstatic.com/media/cf309e_bf362104fa9545a793b22e4bcd23573a~mv2.png",  // 14: NCsoft
+    "https://static.wixstatic.com/media/cf309e_b0889412b4c44f478e03b41cd62d2e7b~mv2.png",  // 15: 청량
+    "https://static.wixstatic.com/media/cf309e_28b33cbd0e704aa58861b7537b3ffcb8~mv2.png",  // 16: 테라
+    "https://static.wixstatic.com/media/cf309e_0f7f3680c88745e4b5d27dda59b7f872~mv2.png",  // 17: 포트리스
+    "https://static.wixstatic.com/media/cf309e_aa198842a9ab49bb966c1f72e756aeb0~mv2.png"   // 18: 검은사막
 ];
 
 const backButtonHtml = `
@@ -25,6 +27,170 @@ const backButtonHtml = `
     </div>`;
 
 const projectsData = [
+    {
+        title: "Web & Brand by AI",
+        htmlContent: `
+            <div class="project-page-wrapper">
+                <div class="project-title-bar">
+                    <h2>Web & Brand by AI</h2>
+                </div>
+                <div class="project-images">
+                    <!-- Main Hero Header Image -->
+                    <img src="assets/ai_driven_01.jpg" alt="Web & Brand by AI Overview" class="hero-image">
+
+                    <!-- AI Highlight Section -->
+                    <div class="ai-highlight-section">
+                        <div class="ai-highlight-container">
+                            <h3 class="ai-highlight-title">AI-Driven Efficiency & High Quality Design</h3>
+                            <p class="ai-highlight-desc">
+                                기획 단계부터 디자인 가공, 정밀 코딩 및 배포에 이르기까지 검증된 차세대 AI 협업 프로세스를 정립했습니다.<br>
+                                다양한 지능형 툴들을 적재적소에 유기적으로 배치함으로써, 작업 공정을 신속하게 완수함과 동시에 완성도 높은 퀄리티의 프리미엄 UX/UI 결과물을 일관되게 창출해 냈습니다.
+                            </p>
+                            <div class="ai-highlight-icons">
+                                <div class="ai-icon-item">
+                                    <img src="assets/안티그래비티.png" alt="안티그래비티">
+                                    <span>안티그래비티</span>
+                                </div>
+                                <div class="ai-icon-item">
+                                    <img src="assets/제미나이.png" alt="제미나이">
+                                    <span>제미나이</span>
+                                </div>
+                                <div class="ai-icon-item">
+                                    <img src="assets/클로드.png" alt="클로드">
+                                    <span>클로드</span>
+                                </div>
+                                <div class="ai-icon-item">
+                                    <img src="assets/클로드코드.png" alt="클로드코드">
+                                    <span>클로드코드</span>
+                                </div>
+                                <div class="ai-icon-item">
+                                    <img src="assets/포토샵.png" alt="포토샵">
+                                    <span>포토샵</span>
+                                </div>
+                                <div class="ai-icon-item">
+                                    <img src="assets/피그마.png" alt="피그마">
+                                    <span>피그마</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1st Project: Fitters Studio Images -->
+                    <img src="assets/ai_driven_02.jpg" alt="Fitters Studio Screen 1">
+                    <img src="assets/ai_driven_03.jpg" class="img-before-text" alt="Fitters Studio Screen 2">
+
+                    <!-- 1st Project: Fitters Studio Inline Info (Above Button) -->
+                    <div class="ai-project-inline-info">
+                        <div class="ai-tools-list">
+                            <span class="tool-badge photoshop">Photoshop</span>
+                            <span class="tool-badge figma">Figma</span>
+                            <span class="tool-badge claude">Claude Code</span>
+                        </div>
+                        <p class="ai-project-desc">
+                            Photoshop과 Figma를 활용하여 고품질의 비주얼 인터페이스를 가공하고, Claude Code AI 어시스턴트를 개발 엔진으로 융합하여 기획 및 프론트엔드 빌드 주기를 효율화한 하이브리드 웹 디자인 사이트입니다.
+                        </p>
+                    </div>
+                    
+                    <div class="visit-site-wrap">
+                        <a href="https://www.fittersstudio.com/" target="_blank" class="btn-visit-site">
+                            <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>Fitters Studio 방문하기
+                        </a>
+                    </div>
+
+                    <!-- 2nd Project: OGD Market Images -->
+                    <img src="assets/ai_driven_04.jpg" alt="OGD Market Screen 1">
+                    <img src="assets/ai_driven_05.jpg" class="img-before-text" alt="OGD Market Screen 2">
+
+                    <!-- 2nd Project: OGD Market Inline Info (Above Button) -->
+                    <div class="ai-project-inline-info">
+                        <div class="ai-tools-list">
+                            <span class="tool-badge antigravity">Antigravity</span>
+                            <span class="tool-badge stitch">Stitch</span>
+                            <span class="tool-badge claude">Claude Code</span>
+                        </div>
+                        <p class="ai-project-desc">
+                            독자적인 에이전트 Antigravity와 고성능 Stitch 프레임워크 환경, 그리고 Claude Code의 자동화 개발 조력 역량에 조화롭게 연계하여 복잡한 e-Commerce 마켓플레이스 서비스를 신속하게 구축했습니다.
+                        </p>
+                    </div>
+                    
+                    <div class="visit-site-wrap">
+                        <a href="https://ogd-market-new.vercel.app/" target="_blank" class="btn-visit-site">
+                            <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>OGD Platform 방문하기
+                        </a>
+                    </div>
+
+                    <!-- 3rd Project: Stockify Images -->
+                    <img src="assets/ai_driven_6.jpg" alt="Stockify Screen 1">
+                    <img src="assets/ai_driven_7.jpg" class="img-before-text" alt="Stockify Screen 2">
+
+                    <!-- 3rd Project: Stockify Inline Info (Bottom) -->
+                    <div class="ai-project-inline-info">
+                        <div class="ai-tools-list">
+                            <span class="tool-badge antigravity">Antigravity</span>
+                            <span class="tool-badge figma">Figma</span>
+                        </div>
+                        <p class="ai-project-desc">
+                            Figma로 디자인 프로토타입을 단단히 세팅하고, 지능형 AI 코딩 코파일럿 Antigravity의 유기적 가이드라인 및 코드 생성을 통해 모던하고 반응성이 뛰어난 브랜딩 서비스 구조를 설계하였습니다.
+                        </p>
+                    </div>
+                </div>
+                ${backButtonHtml}
+            </div>`
+    },
+    {
+        title: "Value Life Project",
+        htmlContent: `
+            <div class="project-page-wrapper vl-project-page">
+                <div class="project-title-bar">
+                    <h2>Value Life Project</h2>
+                </div>
+                <div class="project-images">
+                    <!-- Section 1 & 2: Overview and Logo details -->
+                    <img src="assets/VL_project01.png" alt="Value Life Project Overview" class="vl-hero-img">
+                    
+                    <!-- Section 3: Character Illustration -->
+                    <img src="assets/VL_project02.png" alt="Value Life Character Development" class="vl-char-img">
+                </div>
+                <div class="project-description-section">
+                    <p class="desc-main">부의 미래를 이끌어갈 8명의 핵심 캐릭터를 기획하고 디자인 하였습니다.</p>
+                    <p class="desc-sub">전문적인 금융 정보와 친근하고 쉬운 비주얼 가이드라인을 제공하고자 합니다.</p>
+                </div>
+                
+                <div class="project-images">
+                    <!-- Section 4: Cardnews layout -->
+                    <img src="assets/VL_project03.png" alt="Value Life Cardnews Template" class="vl-cardnews-img">
+                </div>
+                <div class="project-description-section">
+                    <p class="desc-main">카드뉴스 템플릿에 맞춤 일러스트를 접목시켜 복잡한 소식을 명확하고 친근하게 전달하며,</p>
+                    <p class="desc-sub">다양한 채널에서 유연하게 활용할 수 있는 가이드라인을 제안합니다.</p>
+                </div>
+
+                <!-- Section 5: Multi Platform Expansion Strategy -->
+                <div class="multi-platform-section">
+                    <div class="multi-platform-container">
+                        <div class="platform-text-column">
+                            <h3 class="platform-title">멀티 플랫폼 콘텐츠 확장 전략</h3>
+                            <div class="platform-desc-box">
+                                <p class="platform-desc-highlight">다양한 채널(인스타그램, 유튜브 등)에 브랜드 콘텐츠를 유연하게 녹여내어 브랜딩 가치를 구축하고,</p>
+                                <p class="platform-desc-detail">
+                                    시각적 통일성을 잃지 않으면서 채널 성격에 맞는 레이아웃 템플릿으로 가공하였습니다.<br>
+                                    일관된 브랜드 톤앤매너를 유지하며 대중에게 보다 신뢰감 있고 친밀한 브랜드 경험을 선사합니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="platform-image-column">
+                            <img src="assets/VL_project04.png" alt="Instagram and Threads Mobile Feed Layout">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: YouTube Channel Layout -->
+                <div class="project-images youtube-section">
+                    <img src="assets/VL_project05.png" alt="Value Life YouTube Channel Structure" class="vl-youtube-img">
+                </div>
+                ${backButtonHtml}
+            </div>`
+    },
     {
         title: "GameAIfy",
         htmlContent: `
@@ -46,12 +212,12 @@ const projectsData = [
     {
         title: "엔픽셀 기업문화 IR",
         htmlContent: `
-            <div class="project-page-wrapper">
+            <div class="project-page-wrapper npixel-ir-page">
                 <div class="project-title-bar">
                     <h2>엔픽셀 기업문화 IR</h2>
                 </div>
                 <div class="project-images">
-                    <img src="https://static.wixstatic.com/media/cf309e_cbc9411d1a244d02b0bbcdc3573db1da~mv2.jpg" alt="">
+                    <img src="https://static.wixstatic.com/media/cf309e_cbc9411d1a244d02b0bbcdc3573db1da~mv2.jpg" alt="" class="hero-image">
                     <img src="https://static.wixstatic.com/media/cf309e_3f09f58aa82f46b1953d05527894fee3~mv2.jpg" alt="">
                     <img src="https://static.wixstatic.com/media/cf309e_7d8ad2e8821e486c945145b8597fb18e~mv2.jpg" alt="">
                     <img src="https://static.wixstatic.com/media/cf309e_2db867b488a741ba90ffd1e4e316279a~mv2.jpg" alt="">
@@ -63,12 +229,12 @@ const projectsData = [
     {
         title: "그랑사가 게임 콘텐츠",
         htmlContent: `
-            <div class="project-page-wrapper">
+            <div class="project-page-wrapper gransaga-contents-page">
                 <div class="project-title-bar">
                     <h2>그랑사가 게임 콘텐츠</h2>
                 </div>
                 <div class="project-images">
-                    <img src="https://static.wixstatic.com/media/cf309e_dbd38f11422f4c4984dc4fbe05a87bb4~mv2.jpg" alt="">
+                    <img src="https://static.wixstatic.com/media/cf309e_dbd38f11422f4c4984dc4fbe05a87bb4~mv2.jpg" alt="" class="hero-image">
                     <img src="https://static.wixstatic.com/media/cf309e_f38b17cbd3334c64bbd8f92029725c56~mv2.jpg" alt="">
                     <img src="https://static.wixstatic.com/media/cf309e_2fde6b4b7ec945ee84611477591a3a34~mv2.jpg" alt="">
                     <img src="https://static.wixstatic.com/media/cf309e_5c57189a4a614ab9bc66166190a41735~mv2.jpg" alt="">
@@ -91,12 +257,12 @@ const projectsData = [
     {
         title: "그랑사가 SNS",
         htmlContent: `
-            <div class="project-page-wrapper">
+            <div class="project-page-wrapper gransaga-sns-page">
                 <div class="project-title-bar">
                     <h2>그랑사가 SNS</h2>
                 </div>
                 <div class="project-images">
-                    <img src="https://static.wixstatic.com/media/cf309e_11e3c84c77b544028ebcacfe1dd7f1e4~mv2.jpg" alt="">
+                    <img src="https://static.wixstatic.com/media/cf309e_11e3c84c77b544028ebcacfe1dd7f1e4~mv2.jpg" alt="" class="hero-image">
                     <img src="https://static.wixstatic.com/media/cf309e_859d7ed72e6f4af9bf837f82e18a7190~mv2.jpg" alt="">
                     <img src="https://static.wixstatic.com/media/cf309e_69ac08bfebfd4f318ac1c34fc2b6c1cf~mv2.jpg" alt="">
                     <img src="https://static.wixstatic.com/media/cf309e_2d0df0b9bfe54cc58f41eb6c5ffd0dd5~mv2.jpg" alt="">
@@ -109,13 +275,17 @@ const projectsData = [
     {
         title: "크로노오디세이",
         htmlContent: `
-            <div class="project-page-wrapper">
+            <div class="project-page-wrapper chrono-page">
                 <div class="project-title-bar">
                     <h2>크로노오디세이</h2>
                     <p class="project-subtitle">게임 공식 웹사이트 기획 및 디자인</p>
                 </div>
                 <div class="project-images">
-                    <img src="https://static.wixstatic.com/media/cf309e_ed48671a471b4dadad7c0300b3993ddc~mv2.png" alt="">
+                    <img src="https://static.wixstatic.com/media/cf309e_ed48671a471b4dadad7c0300b3993ddc~mv2.png" alt="" class="hero-image">
+                </div>
+                <!-- Overview Image placed directly under main hero image -->
+                <div class="project-images">
+                    <img src="https://static.wixstatic.com/media/cf309e_9be5eeafeeaa4f50a125e4c75641db70~mv2.png" alt="">
                 </div>
                 <div class="project-section">
                     <h3>Main Page</h3>
@@ -123,10 +293,6 @@ const projectsData = [
                 </div>
                 <div class="project-images">
                     <img src="https://static.wixstatic.com/media/cf309e_efdece6216bb46e18dfc822a23ae1e5f~mv2.jpg" alt="">
-                </div>
-                <div class="project-section">
-                    <h3>Characters</h3>
-                    <p>5명의 캐릭터와 캐릭터 스토리를 인게임 종족 아이콘 탭으로 구성</p>
                 </div>
                 <div class="project-images character-grid">
                     <img src="https://static.wixstatic.com/media/cf309e_e5c99008b1894be3a5a1245dd097fdb1~mv2.png" alt="">
@@ -136,19 +302,8 @@ const projectsData = [
                     <img src="https://static.wixstatic.com/media/cf309e_6402bf1c407b4b6eab81de70e6bb94ce~mv2.png" alt="">
                     <img src="https://static.wixstatic.com/media/cf309e_b0d815541c7449338dc10eae09389ec9~mv2.png" alt="">
                 </div>
-                <div class="project-section">
-                    <h3>Concept Art</h3>
-                    <p>크로노오디세이의 다양한 컨셉아트를 고해상도로 다운받을 수 있는 페이지 구성</p>
-                </div>
                 <div class="project-images">
                     <img src="https://static.wixstatic.com/media/cf309e_8faabae646854ff481706c9466354aa0~mv2.jpg" alt="">
-                </div>
-                <div class="project-section">
-                    <h3>Overview</h3>
-                    <p>크로노오디세이 게임의 세계관을 간단하게 설명하는 페이지 구성</p>
-                </div>
-                <div class="project-images">
-                    <img src="https://static.wixstatic.com/media/cf309e_9be5eeafeeaa4f50a125e4c75641db70~mv2.png" alt="">
                 </div>
                 ${backButtonHtml}
             </div>`

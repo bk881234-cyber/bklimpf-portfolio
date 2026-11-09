@@ -1,1 +1,4 @@
 .vercel
+.superpowers/
+.playwright-mcp/
+backup/
