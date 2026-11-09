@@ -168,18 +168,48 @@ def test_grid():
         assert p.evaluate("document.querySelectorAll('.portfolio-item')[7].querySelector('.cap-t').textContent") == "BMW"
 
 
-def test_grid_click_stores_transition():
+def test_grid_click_plays_transition():
     with page() as p:
         p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
-        # stub the detail page so project.js cannot consume the value
-        p.route("**/project.html*", lambda r: r.fulfill(body="<html><body>stub</body></html>", content_type="text/html"))
         p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(900)
-        p.locator(".portfolio-item").nth(7).click(); p.wait_for_url("**/project.html?id=7")
-        import json
-        raw = p.evaluate("sessionStorage.getItem('bk-transition')")
-        assert raw, raw
-        d = json.loads(raw)
-        assert d["index"] == 7 and d["src"] and all(k in d["rect"] for k in ("x", "y", "w", "h")), d
+        p.locator(".portfolio-item").nth(7).click()
+        p.wait_for_timeout(120)
+        assert "index.html" in p.url, p.url                    # still on the grid while the panel opens
+        assert p.locator(".grid-trans").count() == 1
+        p.wait_for_url("**/project.html?id=7", timeout=3000)
+
+
+def test_grid_back_restores_clean():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(900)
+        p.locator(".portfolio-item").nth(7).click(); p.wait_for_url("**/project.html?id=7", timeout=3000)
+        p.go_back(); p.wait_for_timeout(500)
+        assert p.locator(".grid-trans").count() == 0
+
+
+def test_portfolio_heading_aligned():
+    with page(viewport=(2064, 1209)) as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(500)
+        assert p.inner_text(".portfolio-head h2").strip() == "Portfolio"
+        h = p.evaluate("document.querySelector('.portfolio-head h2').getBoundingClientRect().left")
+        g = p.evaluate("document.querySelector('.portfolio-grid').getBoundingClientRect().left")
+        assert abs(h - g) < 1, (h, g)
+
+
+def test_header_bg_after_small_scroll():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(500)
+        p.mouse.wheel(0, 120); p.wait_for_timeout(300)
+        assert p.evaluate("document.getElementById('header').classList.contains('is-scrolled')")
+
+
+def test_hero_logo_size():
+    for vw, vh, lo in [(1440, 900, 650), (2560, 1440, 900)]:
+        with page(viewport=(vw, vh)) as p:
+            p.goto(BASE + "/index.html"); p.wait_for_timeout(400)
+            w = p.evaluate("document.querySelector('.hero-stage').getBoundingClientRect().width")
+            assert lo <= w <= 1000, (vw, w)
 
 
 # ---------------------------------------------------------------- Task 4
@@ -230,17 +260,17 @@ def test_detail_bad_id():
             assert errors == [], (q, errors)
 
 
-def test_detail_transition():
-    with page() as p:
-        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
-        p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(900)
-        p.locator(".portfolio-item").nth(7).click()
-        p.wait_for_url("**/project.html?id=7", wait_until="domcontentloaded")
-        p.wait_for_timeout(150)
-        assert p.locator(".dp-trans").count() == 1
-        assert p.evaluate("sessionStorage.getItem('bk-transition')") is None
-        p.wait_for_timeout(2000)
-        assert p.locator(".dp-trans").count() == 0
+def test_detail_header_aligned():
+    with page(viewport=(2064, 1209)) as p:                                  # user's screen: wrapper caps at 1920 -> inset images
+        p.goto(BASE + "/project.html?id=1"); p.wait_for_timeout(1500)
+        t = p.evaluate("document.querySelector('.dp-hero h1').getBoundingClientRect().left")
+        i = p.evaluate("document.querySelector('.project-page-wrapper img').getBoundingClientRect().left")
+        assert i > 24 and abs(t - i) < 1.5, (t, i)
+    with page() as p:                                                       # 1440: BMW images run full-bleed
+        p.goto(BASE + "/project.html?id=7"); p.wait_for_timeout(1500)
+        t = p.evaluate("document.querySelector('.dp-hero h1').getBoundingClientRect().left")
+        l = p.evaluate("document.querySelector('#header .header-logo').getBoundingClientRect().left")
+        assert abs(t - l) < 1.5, (t, l)
 
 
 # ---------------------------------------------------------------- Task 5

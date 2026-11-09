@@ -68,7 +68,8 @@
 /* ---- logo stage: box of the 2000x1035 artwork; arrow shaft centre = 49.13% ---- */
 .hero-stage {
     position: relative; z-index: 3; flex: none;
-    width: min(39.6vw, 73vh);
+    /* 1000px cap: the 2000px source is still >= 2x on Retina screens, so the logo never upscales */
+    width: min(50vw, 78vh, 1000px);
     aspect-ratio: 2000 / 1035;
 }
 .hero-path {
@@ -165,7 +166,7 @@
 }
 
 @media (max-width: 768px) {
-    .hero-stage { width: 72vw; }
+    .hero-stage { width: 82vw; }
     .hero-role { letter-spacing: .14em; }
 }
 @media (pointer: coarse) {

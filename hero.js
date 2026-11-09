@@ -62,7 +62,8 @@
     /* ---------- header background after the hero ---------- */
     var header = document.getElementById('header');
     if (header) {
-        var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > hero.offsetHeight - 90); };
+        // a background as soon as anything can slide under the header (no text showing through it)
+        var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 24); };
         window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
     }
 

@@ -7,7 +7,6 @@
     var data = index >= 0 && index < projectsData.length ? projectsData[index] : null;
 
     if (!data) {
-        clearTransition();
         mainContainer.innerHTML =
             '<div class="project-page-wrapper"><div class="dp-missing"><h2>프로젝트를 찾을 수 없습니다.</h2>' +
             '<a href="index.html#portfolio" class="back-btn">← 목록으로 돌아가기</a></div></div>';
@@ -40,7 +39,7 @@
     markReveals(wrapper);
     createProjectNavigation(index);
     initProgressBar();
-    playTransition();
+    alignHeader(header, wrapper);
     requestAnimationFrame(function () { document.body.classList.add('dp-go'); });
 
     /* ------------------------------------------------------------------ */
@@ -88,30 +87,30 @@
         update();
     }
 
-    function clearTransition() {
-        try { sessionStorage.removeItem('bk-transition'); } catch (e) { /* ignore */ }
-    }
-
-    // Replays the clicked grid tile growing to full screen, then fades it away.
-    function playTransition() {
-        var t = null;
-        try { t = JSON.parse(sessionStorage.getItem('bk-transition') || 'null'); } catch (e) { t = null; }
-        clearTransition();
-        if (!t || t.index !== index || !t.rect || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var o = document.createElement('div');
-        o.className = 'dp-trans';
-        o.style.backgroundImage = 'url("' + String(t.src).replace(/"/g, '%22') + '")';
-        o.style.left = t.rect.x + 'px'; o.style.top = t.rect.y + 'px';
-        o.style.width = t.rect.w + 'px'; o.style.height = t.rect.h + 'px';
-        document.body.appendChild(o);
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-                o.style.left = '0px'; o.style.top = '0px';
-                o.style.width = window.innerWidth + 'px'; o.style.height = window.innerHeight + 'px';
-            });
-        });
-        setTimeout(function () { o.classList.add('is-out'); }, 950);
-        setTimeout(function () { o.remove(); }, 1600);
+    // Lines the header text up with the project's own content edge: the first image's left/right
+    // when it is inset (e.g. Value Life), or the site header's logo edge when images run full-bleed.
+    function alignHeader(el, root) {
+        var logo = document.querySelector('#header .header-logo');
+        function apply() {
+            var first = root.querySelector('img:not(.preview-img)');
+            var box = el.getBoundingClientRect();          // padding is relative to the header's own box
+            var W = document.documentElement.clientWidth;
+            var left = logo ? logo.getBoundingClientRect().left : 40, right = W - left;
+            if (first && first.offsetWidth) {
+                var r = first.getBoundingClientRect();
+                if (r.left - box.left > 24 || r.left > 24) { left = r.left; right = r.right; }
+            }
+            // keep a minimum gutter only where the text would otherwise touch the screen edge
+            var pl = Math.max(Math.round(left - box.left), 0), pr = Math.max(Math.round(box.right - right), 0);
+            if (box.left + pl < 20) pl = 20 - box.left;
+            if (W - (box.right - pr) < 20) pr = 20 - (W - box.right);
+            el.style.setProperty('--dp-l', pl + 'px');
+            el.style.setProperty('--dp-r', pr + 'px');
+        }
+        apply();
+        var first = root.querySelector('img:not(.preview-img)');
+        if (first && !first.complete) first.addEventListener('load', apply, { once: true });
+        window.addEventListener('resize', apply);
     }
 
     function createProjectNavigation(currentIndex) {

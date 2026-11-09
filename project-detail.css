@@ -676,7 +676,7 @@ body.project-page header.dp-top {
     background: #4B3D39; pointer-events: none;
 }
 
-.dp-hero { max-width: 1100px; margin: 0 auto; padding: 72px 40px 48px; text-align: left; }
+.dp-hero { padding: 72px var(--dp-r, 40px) 48px var(--dp-l, 40px); text-align: left; }
 .dp-no { font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .2em; color: #857870; overflow: hidden; }
 .dp-hero h1 {
     margin: 12px 0 28px; overflow: hidden;
@@ -703,12 +703,9 @@ body.dp-go .dp-hero .up { transform: none; }
 }
 .project-images img[data-reveal="img"].in { opacity: 1; clip-path: inset(0); transform: none; }
 
-.dp-trans {
-    position: fixed; z-index: 2000; pointer-events: none;
-    background-size: cover; background-position: center; background-color: #d3cec7;
-    transition: left .9s cubic-bezier(.76,0,.24,1), top .9s cubic-bezier(.76,0,.24,1), width .9s cubic-bezier(.76,0,.24,1), height .9s cubic-bezier(.76,0,.24,1), opacity .6s ease;
-}
-.dp-trans.is-out { opacity: 0; }
+/* entering from the grid: the page is already white under the panel; content settles in */
+body.project-page main { animation: dp-enter .5s ease both; }
+@keyframes dp-enter { from { opacity: 0; } to { opacity: 1; } }
 
 .dp-missing { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 80px 24px; }
 .dp-missing h2 { font: 400 28px Georgia, serif; color: #3e3431; }
@@ -728,7 +725,7 @@ body.dp-go .dp-hero .up { transform: none; }
 .back-btn:hover { background: #2f2523; }
 
 @media (max-width: 768px) {
-    .dp-hero { padding: 48px 20px 32px; }
+    .dp-hero { padding-top: 48px; padding-bottom: 32px; }
     .dp-info { grid-template-columns: 1fr 1fr; }
     .dp-count { display: none; }
 }
