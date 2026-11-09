@@ -3,3 +3,12 @@ extract.py
 fix_data.js
 scraped_images.json
 extracted_text.txt
+backup
+tests
+docs
+CLAUDE.md
+.superpowers
+.playwright-mcp
+deploy.ps1
+setup.ps1
+__pycache__
