@@ -1,2 +1,6 @@
 .vercel
 .env
+.superpowers/
+.playwright-mcp/
+backup/
+__pycache__/
