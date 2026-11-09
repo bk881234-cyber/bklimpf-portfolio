@@ -33,9 +33,9 @@ _browser = None
 
 
 @contextlib.contextmanager
-def page(viewport=(1440, 900), reduced=False, touch=False):
+def page(viewport=(1440, 900), reduced=False, touch=False, dpr=1):
     ctx = _browser.new_context(
-        viewport={"width": viewport[0], "height": viewport[1]},
+        viewport={"width": viewport[0], "height": viewport[1]}, device_scale_factor=dpr,
         reduced_motion="reduce" if reduced else "no-preference",
         has_touch=touch, is_mobile=touch,
     )
@@ -255,6 +255,44 @@ def test_about_and_polish():
         n = p.evaluate("document.querySelectorAll('#about [data-reveal].in').length")
         assert n >= 3, n
         assert errors == [], errors
+
+
+# ---------------------------------------------------------------- final review fixes
+def test_hero_logo_hidpi():  # logo bitmap must be >= displayed device pixels on wide Retina screens
+    with page(viewport=(1920, 1080), dpr=2) as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(800)
+        # with srcset, naturalWidth is density-corrected; measure the chosen file's real bitmap width
+        nat = p.evaluate("""()=>new Promise(r=>{const i=new Image();i.onload=()=>r(i.naturalWidth);
+              i.src=document.querySelector('img.hero-logo').currentSrc})""")
+        shown = p.evaluate("document.querySelector('img.hero-logo').getBoundingClientRect().width * devicePixelRatio")
+        assert nat >= shown, (nat, shown)
+
+
+def test_detail_subtitle_kept():
+    with page() as p:
+        p.goto(BASE + "/project.html?id=6"); p.wait_for_timeout(800)
+        assert "게임 공식 웹사이트 기획 및 디자인" in p.inner_text(".dp-hero")
+
+
+def test_hero_cursor_visible_until_custom_cursor():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(300)
+        assert p.evaluate("getComputedStyle(document.getElementById('hero')).cursor") != "none"   # during intro
+        p.wait_for_timeout(2400)
+        assert p.evaluate("getComputedStyle(document.getElementById('hero')).cursor") != "none"   # lit, mouse not moved
+        box = p.locator("#hero").bounding_box()
+        p.mouse.move(box["x"] + 200, box["y"] + 200); p.mouse.move(box["x"] + 260, box["y"] + 220)
+        p.wait_for_timeout(100)
+        assert p.evaluate("getComputedStyle(document.getElementById('hero')).cursor") == "none"   # custom cursor shown
+
+
+def test_hero_reduced_motion_no_trail():
+    with page(reduced=True) as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(300)
+        box = p.locator("#hero").bounding_box(); y = box["y"] + box["height"] * .8
+        for i in range(60):
+            p.mouse.move(box["x"] + 50 + i * (box["width"] - 100) / 60, y); p.wait_for_timeout(30)
+        assert p.evaluate("document.querySelectorAll('.hero-trail .ti').length") == 0
 
 
 # ---------------------------------------------------------------- runner

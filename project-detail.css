@@ -683,6 +683,7 @@ body.project-page header.dp-top {
     font: 400 clamp(40px, 7vw, 88px)/1.05 Georgia, "Times New Roman", serif;
     letter-spacing: -.02em; color: #3e3431;
 }
+.dp-sub { margin: -14px 0 28px; overflow: hidden; font: 400 16px/1.5 var(--font-main); color: #6b5f57; }
 .dp-info {
     display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;
     border-top: 1px solid rgba(62,52,49,.18); padding-top: 16px;

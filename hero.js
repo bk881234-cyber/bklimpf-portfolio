@@ -66,7 +66,8 @@
         window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
     }
 
-    if (coarse || typeof imageUrls === 'undefined') return;
+    // touch devices and reduced-motion users get no cursor light, trail or custom cursor
+    if (coarse || reduced || typeof imageUrls === 'undefined') return;
 
     /* ---------- thumbnails ---------- */
     var WIX = 'static.wixstatic.com';

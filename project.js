@@ -18,9 +18,21 @@
     mainContainer.innerHTML = data.htmlContent || '<div class="project-page-wrapper"></div>';
 
     var wrapper = mainContainer.querySelector('.project-page-wrapper') || mainContainer;
+    var header = renderHeader(index, data);
     var oldBar = wrapper.querySelector('.project-title-bar');
-    if (oldBar) oldBar.remove();
-    wrapper.insertBefore(renderHeader(index, data), wrapper.firstChild);
+    if (oldBar) {
+        // keep any subtitle the old title bar carried (e.g. 크로노오디세이), shown under the new title
+        var sub = oldBar.querySelector('.project-subtitle');
+        if (sub) {
+            var line = document.createElement('p');
+            line.className = 'dp-sub';
+            line.innerHTML = '<span class="up" style="--d:2"></span>';
+            line.firstChild.textContent = sub.textContent.trim();
+            header.insertBefore(line, header.querySelector('.dp-info'));
+        }
+        oldBar.remove();
+    }
+    wrapper.insertBefore(header, wrapper.firstChild);
 
     var count = document.querySelector('.dp-count');
     if (count) count.textContent = pad(index + 1) + ' / ' + pad(projectsData.length);
