@@ -1,22 +1,42 @@
-const portfolioGrid = document.getElementById('portfolioGrid');
+/* Portfolio grid: square tiles with a focus hover. Clicking a tile stores the
+   tile's rect + image so project.html can replay the grid -> detail transition. */
+(function () {
+    var grid = document.getElementById('portfolioGrid');
+    if (!grid) return;
 
-imageUrls.forEach((url, index) => {
-    const item = document.createElement('div');
-    item.className = 'portfolio-item';
-    item.dataset.index = index;
+    var count = document.getElementById('portfolioCount');
+    if (count) count.textContent = imageUrls.length + ' PROJECTS';
 
-    const title = projectsData[index] ? projectsData[index].title : `Project ${index + 1}`;
+    imageUrls.forEach(function (url, index) {
+        var title = projectsData[index] ? projectsData[index].title : 'Project ' + (index + 1);
+        var n = String(index + 1).padStart(2, '0');
 
-    item.innerHTML = `
-        <img src="${url}" alt="${title}" loading="lazy">
-        <div class="portfolio-overlay">
-            <div class="portfolio-title">${title}</div>
-        </div>
-    `;
+        var item = document.createElement('a');
+        item.className = 'portfolio-item';
+        item.href = 'project.html?id=' + index;
+        item.dataset.index = index;
+        item.setAttribute('data-reveal', '');
+        item.style.setProperty('--i', index % 10);
 
-    item.addEventListener('click', () => {
-        window.location.href = `project.html?id=${index}`;
+        var img = document.createElement('img');
+        img.src = url; img.alt = title; img.loading = 'lazy';
+        var cap = document.createElement('div');
+        cap.className = 'portfolio-cap';
+        cap.innerHTML = '<span class="cap-n"></span><span class="cap-t"></span>';
+        cap.firstChild.textContent = n;
+        cap.lastChild.textContent = title;
+        item.appendChild(img); item.appendChild(cap);
+
+        item.addEventListener('click', function () {
+            var r = img.getBoundingClientRect();
+            try {
+                sessionStorage.setItem('bk-transition', JSON.stringify({
+                    index: index, src: img.currentSrc || img.src,
+                    rect: { x: r.left, y: r.top, w: r.width, h: r.height }
+                }));
+            } catch (e) { /* storage unavailable: navigate without the transition */ }
+        });
+
+        grid.appendChild(item);
     });
-
-    portfolioGrid.appendChild(item);
-});
+})();

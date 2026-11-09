@@ -39,6 +39,9 @@ def page(viewport=(1440, 900), reduced=False, touch=False):
         reduced_motion="reduce" if reduced else "no-preference",
         has_touch=touch, is_mobile=touch,
     )
+    # the site uses `scroll-behavior: smooth`; tests need the page to stop where Playwright scrolls it
+    ctx.add_init_script("document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('style');"
+                        "s.textContent='html{scroll-behavior:auto!important}';document.head.appendChild(s)})")
     p = ctx.new_page()
     try:
         yield p
@@ -144,6 +147,39 @@ def test_hero_touch_no_trail():
         assert p.evaluate("getComputedStyle(document.querySelector('.hero-cursor')).display") == "none"
         p.mouse.move(100, 500); p.mouse.move(600, 500)
         assert p.evaluate("document.querySelectorAll('.hero-trail .ti').length") == 0
+
+
+# ---------------------------------------------------------------- Task 3
+def test_grid():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        assert p.evaluate("document.querySelectorAll('.portfolio-item').length") == 20
+        assert p.evaluate("getComputedStyle(document.querySelector('.portfolio-grid')).gap") == "4px"
+        cols = p.evaluate("getComputedStyle(document.querySelector('.portfolio-grid')).gridTemplateColumns.split(' ').length")
+        assert cols == 5, cols
+        assert "20 PROJECTS" in p.inner_text(".portfolio-section")
+        p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(1200)
+        assert p.evaluate("document.querySelectorAll('.portfolio-item.in').length") >= 10
+        p.hover(".portfolio-item >> nth=7"); p.wait_for_timeout(600)
+        other = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item')[6],'::before').opacity")
+        mine = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item')[7],'::before').opacity")
+        img_op = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item img')[6]).opacity")
+        assert other == "1" and mine == "0" and img_op == "1", (other, mine, img_op)
+        assert p.evaluate("document.querySelectorAll('.portfolio-item')[7].querySelector('.cap-t').textContent") == "BMW"
+
+
+def test_grid_click_stores_transition():
+    with page() as p:
+        p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
+        # stub the detail page so project.js cannot consume the value
+        p.route("**/project.html*", lambda r: r.fulfill(body="<html><body>stub</body></html>", content_type="text/html"))
+        p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(900)
+        p.locator(".portfolio-item").nth(7).click(); p.wait_for_url("**/project.html?id=7")
+        import json
+        raw = p.evaluate("sessionStorage.getItem('bk-transition')")
+        assert raw, raw
+        d = json.loads(raw)
+        assert d["index"] == 7 and d["src"] and all(k in d["rect"] for k in ("x", "y", "w", "h")), d
 
 
 # ---------------------------------------------------------------- runner
