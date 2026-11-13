@@ -40,6 +40,7 @@
 
     function openPanel(item, img) {
         var r = item.getBoundingClientRect(), W = window.innerWidth, H = window.innerHeight;
+        var currentTransform = getComputedStyle(img).transform;
         var panel = document.createElement('div');
         panel.className = 'grid-trans';
         panel.style.clipPath = 'inset(' + r.top + 'px ' + (W - r.right) + 'px ' + (H - r.bottom) + 'px ' + r.left + 'px)';
@@ -47,10 +48,14 @@
         pic.src = img.currentSrc || img.src; pic.alt = '';
         pic.style.left = r.left + 'px'; pic.style.top = r.top + 'px';
         pic.style.width = r.width + 'px'; pic.style.height = r.height + 'px';
+        if (currentTransform && currentTransform !== 'none') {
+            pic.style.transform = currentTransform;
+        }
         panel.appendChild(pic);
         document.body.appendChild(panel);
         document.body.classList.add('is-leaving');
         void panel.offsetWidth;                       // commit the start state before animating
+        pic.style.transform = '';
         panel.classList.add('is-open');
         setTimeout(function () { window.location.href = item.href; }, 760);
     }

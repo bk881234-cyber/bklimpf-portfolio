@@ -1,5 +1,6 @@
 const imageUrls = [
-    "assets/ai_driven_th.jpg",  // 0: Web & Brand by AI
+    "assets/ogt_th.jpg", // 0: OGT (Oh! Get Tool!)
+    "assets/ai_driven_th.jpg",  // 1: Web & Brand by AI
     "assets/VL_project_th.png", // 1: Value Life Project
     "https://static.wixstatic.com/media/cf309e_274514ae4ddf4f8daebab3a4dcb38079~mv2.png",  // 2: GameAIfy
     "https://static.wixstatic.com/media/cf309e_c863943301c14063af889e10f3a00a62~mv2.png",  // 3: 엔픽셀 기업문화 IR
@@ -27,6 +28,139 @@ const backButtonHtml = `
     </div>`;
 
 const projectsData = [
+    {
+        title: "OGT (Oh! Get Tool!)",
+        htmlContent: `
+            <div class="project-page-wrapper product-showcase-page">
+                <div class="project-title-bar">
+                    <h2>OGT (Oh! Get Tool!)</h2>
+                </div>
+                <div class="project-images">
+                    <img src="assets/ogt_00_hero.jpg" alt="OGT Creative Suite Hero" class="hero-image">
+                </div>
+                <div class="project-description-section">
+                    <p class="desc-main">내 작업 흐름에 맞게 직접 기획하고 개발한 웹 기반 이미지 · 보정 · 동영상 편집 툴입니다.</p>
+                    <p class="desc-sub">무거운 프로그램을 따로 켜지 않고 브라우저에서 사진 불러오기부터 디자인 편집, 인물 보정, 쇼츠 영상 제작까지 이어서 작업합니다.</p>
+                </div>
+
+                <!-- 시작 화면 & 규격 선택 -->
+                <div class="multi-platform-section">
+                    <div class="multi-platform-container">
+                        <div class="platform-text-column">
+                            <h3 class="platform-title">작업 목적에 바로 들어가는 시작 화면</h3>
+                            <div class="platform-desc-box">
+                                <p class="platform-desc-highlight">사진 열기와 영상 편집 진입 버튼을 상단에 배치해 시작 단계의 불필요한 탐색을 줄였습니다.</p>
+                                <p class="platform-desc-detail">블로그·인스타(1:1, 4:5), 쇼츠·릴스(9:16), 유튜브 썸네일(16:9), 링크 미리보기(1200×630), 인쇄용 A4(300dpi)와 직접 입력까지 자주 쓰는 규격을 한 화면에서 바로 선택해 시작할 수 있습니다.</p>
+                            </div>
+                        </div>
+                        <div class="platform-image-column">
+                            <img src="assets/ogt_main.jpg" alt="OGT 시작 화면 및 캔버스 규격 선택">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 멀티 프레임 이미지 편집 -->
+                <div class="multi-platform-section section-light">
+                    <div class="multi-platform-container platform-reverse">
+                        <div class="platform-text-column">
+                            <h3 class="platform-title">멀티 프레임 이미지 편집</h3>
+                            <div class="platform-desc-box">
+                                <p class="platform-desc-highlight">여러 장의 시안이나 캐릭터 바리에이션을 한 캔버스 위 프레임 단위로 나란히 배치해 비교하며 편집합니다.</p>
+                                <p class="platform-desc-detail">포토샵과 같은 단축키(V·M·C·T·P·B)와 레이어, 블렌드 모드, 정렬·꾸미기 속성을 브라우저에 맞춰 정리해 실무 속도를 그대로 유지했습니다.</p>
+                            </div>
+                        </div>
+                        <div class="platform-image-column">
+                            <img src="assets/ogt_editor_work.jpg" alt="OGT 멀티 프레임 이미지 편집 화면">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-images" style="padding-top: 70px;">
+                    <img src="assets/ogt_edit_workspace.png" alt="OGT 사진 및 텍스트 레이어 편집 화면">
+                </div>
+
+                <!-- 무료 이미지 검색 -->
+                <div class="multi-platform-section">
+                    <div class="multi-platform-container">
+                        <div class="platform-text-column">
+                            <h3 class="platform-title">에디터 안 무료 사진 검색</h3>
+                            <div class="platform-desc-box">
+                                <p class="platform-desc-highlight">외부 스톡 사이트를 오가지 않고 작업 화면 안에서 Pixabay 무료 사진과 벡터를 바로 검색합니다.</p>
+                                <p class="platform-desc-detail">한글·영어 검색과 이미지 방향 필터를 지원해 찾은 사진을 클릭 한 번으로 현재 프레임 레이어에 즉시 배치할 수 있습니다.</p>
+                            </div>
+                        </div>
+                        <div class="platform-image-column">
+                            <img src="assets/ogt_free_photo.png" alt="OGT 무료 사진 검색 모달">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 템플릿 라이브러리 -->
+                <div class="multi-platform-section section-light">
+                    <div class="multi-platform-container platform-reverse">
+                        <div class="platform-text-column">
+                            <h3 class="platform-title">실무 템플릿 & 내 템플릿 저장</h3>
+                            <div class="platform-desc-box">
+                                <p class="platform-desc-highlight">카드뉴스, 유튜브 썸네일, 체크리스트, 공지 배너 등 자주 만드는 포맷을 템플릿으로 바로 불러옵니다.</p>
+                                <p class="platform-desc-detail">사진과 문구만 바꿔 빠르게 시안을 완성하고, 직접 만든 레이아웃을 '내 템플릿'으로 저장해 반복 작업을 줄였습니다.</p>
+                            </div>
+                        </div>
+                        <div class="platform-image-column">
+                            <img src="assets/ogt_templates.jpg" alt="OGT 템플릿 라이브러리">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 이미지 보정 -->
+                <div class="multi-platform-section">
+                    <div class="multi-platform-container">
+                        <div class="platform-text-column">
+                            <h3 class="platform-title">얼굴 인식 & 정밀 이미지 보정</h3>
+                            <div class="platform-desc-box">
+                                <p class="platform-desc-highlight">자동 보정과 픽셀 유동화(Shift+Ctrl+X), 배경 흐림, AI 지우개, 밝기·커브, LUT 색감 보정을 한 화면에 모았습니다.</p>
+                                <p class="platform-desc-detail">보정 전·후 비교 슬라이더로 변화를 바로 확인하고, 얼굴 인식 기반의 눈·코·턱선 다듬기부터 노이즈 제거·화질 개선까지 이어서 처리합니다.</p>
+                            </div>
+                        </div>
+                        <div class="platform-image-column">
+                            <img src="assets/ogt_retouch_face.jpg" alt="OGT 이미지 보정 및 픽셀 유동화 화면">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 동영상 편집 -->
+                <div class="multi-platform-section section-light">
+                    <div class="multi-platform-container platform-reverse">
+                        <div class="platform-text-column">
+                            <h3 class="platform-title">쇼츠·릴스 중심 동영상 편집</h3>
+                            <div class="platform-desc-box">
+                                <p class="platform-desc-highlight">이미지 작업에서 곧바로 영상 편집기로 넘어가 세로형(9:16) 쇼츠와 일반 영상을 제작합니다.</p>
+                                <p class="platform-desc-detail">비디오(V1~V3)·오디오(A1~A3) 멀티트랙 타임라인, 음성 기반 자동 자막 생성(C1), 자막 스타일 프리셋과 클립 컷 편집까지 한 툴에서 마무리합니다.</p>
+                            </div>
+                        </div>
+                        <div class="platform-image-column">
+                            <img src="assets/ogt_video_work.jpg" alt="OGT 동영상 편집 타임라인 및 자막 편집 화면">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-project-inline-info" style="padding-top: 60px;">
+                    <div class="ai-tools-list">
+                        <span class="tool-badge figma">Figma</span>
+                        <span class="tool-badge claude">Claude Code</span>
+                        <span class="tool-badge antigravity">Antigravity</span>
+                    </div>
+                    <p class="ai-project-desc">
+                        기획부터 UI/UX 설계, 캔버스 편집·이미지 보정·영상 타임라인 구현까지 실제 디자이너의 작업 흐름에 맞춰 최적화한 자체 제작 스튜디오입니다.
+                    </p>
+                </div>
+                <div class="visit-site-wrap">
+                    <a href="https://image-editor-murex-phi.vercel.app/" target="_blank" class="btn-visit-site">
+                        <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>OGT 에디터 방문하기
+                    </a>
+                </div>
+                ${backButtonHtml}
+            </div>`
+    },
     {
         title: "Web & Brand by AI",
         htmlContent: `

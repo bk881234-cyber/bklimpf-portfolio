@@ -1,5 +1,9 @@
 /* project-detail.css — white background, full-width Wix-style */
 
+html {
+    scrollbar-gutter: stable;
+}
+
 body.project-page {
     background: #ffffff;
     color: #333333;
@@ -654,6 +658,70 @@ body.project-page .site-footer {
     margin: 0 !important;
 }
 
+/* Product showcase pages (OGT) */
+.product-showcase-page .project-description-section {
+    margin-top: 70px;
+}
+.product-showcase-page .multi-platform-section {
+    padding: 96px 40px;
+}
+.product-showcase-page .multi-platform-section.section-light {
+    background-color: #ffffff;
+    border-top: none;
+    border-bottom: none;
+}
+.product-showcase-page .multi-platform-container {
+    max-width: 1320px;
+    grid-template-columns: 0.85fr 1.25fr;
+    gap: 56px;
+}
+.product-showcase-page .multi-platform-container.platform-reverse {
+    grid-template-columns: 1.25fr 0.85fr;
+}
+.product-showcase-page .multi-platform-container.platform-reverse .platform-text-column {
+    order: 2;
+    padding-right: 0;
+    padding-left: 16px;
+}
+.product-showcase-page .multi-platform-container.platform-reverse .platform-image-column {
+    order: 1;
+}
+.product-showcase-page .platform-image-column img {
+    border-radius: 0;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8eaed;
+}
+.product-showcase-page .platform-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    margin-bottom: 18px;
+}
+@media (max-width: 768px) {
+    .product-showcase-page .multi-platform-section {
+        padding: 56px 20px;
+    }
+    .product-showcase-page .multi-platform-container,
+    .product-showcase-page .multi-platform-container.platform-reverse {
+        grid-template-columns: 1fr;
+    }
+    .product-showcase-page .multi-platform-container.platform-reverse .platform-text-column {
+        order: 1;
+        padding-left: 0;
+    }
+    .product-showcase-page .multi-platform-container.platform-reverse .platform-image-column {
+        order: 2;
+    }
+}
+.product-showcase-page .project-images img:not(.hero-image) {
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
 /* ==========================================================================
    Renewal (2026-11): top bar, progress bar, header + info row, reveals,
    grid -> detail transition, side-nav restyle. Reference: detail-page.html
@@ -682,14 +750,18 @@ body.project-page header.dp-top {
 .project-images img[data-reveal="img"] {
     opacity: .001;
     clip-path: inset(12% 0 0 0);
-    transform: translateY(40px);
+    transform: translateY(24px);
     transition: clip-path 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1), opacity .5s ease;
     transition-delay: 0s;
 }
 .project-images img[data-reveal="img"].in { opacity: 1; clip-path: inset(0); transform: none; }
 
 /* entering from the grid: the page is already white under the panel; content settles in */
-body.project-page main { animation: dp-enter .5s ease both; }
+body.project-page header.dp-top,
+body.project-page main,
+.project-side-nav {
+    animation: dp-enter .45s cubic-bezier(.16,1,.3,1) both;
+}
 @keyframes dp-enter { from { opacity: 0; } to { opacity: 1; } }
 
 .dp-missing { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 80px 24px; }
@@ -713,5 +785,8 @@ body.project-page main { animation: dp-enter .5s ease both; }
     .dp-count { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
+    body.project-page header.dp-top,
+    body.project-page main,
+    .project-side-nav { animation: none; }
     .project-images img[data-reveal="img"] { opacity: 1; clip-path: none; transform: none; transition: none; }
 }

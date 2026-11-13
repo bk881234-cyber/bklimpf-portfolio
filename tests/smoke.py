@@ -53,11 +53,15 @@ def page(viewport=(1440, 900), reduced=False, touch=False, dpr=1):
 def test_baseline():
     with page() as p:
         p.goto(BASE + "/index.html")
-        n = p.evaluate("projectsData.length"); assert n == 20, n
-        assert p.evaluate("imageUrls.length") == 20
-        assert p.evaluate("projectsData[0].title") == "Web & Brand by AI"
-        assert p.evaluate("projectsData[19].title") == "검은사막"
-    for f in ["ai_driven_th.jpg", "VL_project_th.png", "ai_driven_02.jpg", "클로드.png",
+        n = p.evaluate("projectsData.length"); assert n == 21, n
+        assert p.evaluate("imageUrls.length") == 21
+        assert p.evaluate("projectsData[0].title") == "OGT (Oh! Get Tool!)"
+        assert p.evaluate("projectsData[1].title") == "Web & Brand by AI"
+        assert p.evaluate("projectsData[20].title") == "검은사막"
+    for f in ["ogt_th.jpg", "ogt_00_hero.jpg", "ogt_main.jpg", "ogt_editor_work.jpg",
+              "ogt_edit_workspace.png", "ogt_free_photo.png", "ogt_templates.jpg",
+              "ogt_retouch_face.jpg", "ogt_video_work.jpg",
+              "ai_driven_th.jpg", "VL_project_th.png", "ai_driven_02.jpg", "클로드.png",
               "logo-1000.png", "logo-160.png", "favicon.png"]:
         assert os.path.exists(os.path.join("assets", f)), f
     from PIL import Image
@@ -66,7 +70,7 @@ def test_baseline():
 
 
 def test_no_page_errors():
-    for path in ["/index.html", "/project.html?id=0", "/project.html?id=7"]:
+    for path in ["/index.html", "/project.html?id=0", "/project.html?id=8"]:
         with page() as p:
             errors = []
             p.on("pageerror", lambda e: errors.append(str(e)))
@@ -153,39 +157,39 @@ def test_hero_touch_no_trail():
 def test_grid():
     with page() as p:
         p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
-        assert p.evaluate("document.querySelectorAll('.portfolio-item').length") == 20
+        assert p.evaluate("document.querySelectorAll('.portfolio-item').length") == 21
         assert p.evaluate("getComputedStyle(document.querySelector('.portfolio-grid')).gap") == "4px"
         cols = p.evaluate("getComputedStyle(document.querySelector('.portfolio-grid')).gridTemplateColumns.split(' ').length")
         assert cols == 5, cols
-        p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(1200)
+        p.locator(".portfolio-item").nth(8).scroll_into_view_if_needed(); p.wait_for_timeout(1200)
         assert p.evaluate("document.querySelectorAll('.portfolio-item.in').length") >= 10
-        p.hover(".portfolio-item >> nth=7"); p.wait_for_timeout(600)
+        p.hover(".portfolio-item >> nth=8"); p.wait_for_timeout(600)
         # only the hovered tile reacts; the others stay exactly as they were (no veil, no desaturation)
-        other_veil = p.evaluate("""(()=>{const b=getComputedStyle(document.querySelectorAll('.portfolio-item')[6],'::before');
+        other_veil = p.evaluate("""(()=>{const b=getComputedStyle(document.querySelectorAll('.portfolio-item')[7],'::before');
                                      return b.content==='none'?'0':b.opacity})()""")
-        other_filter = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item img')[6]).filter")
+        other_filter = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-item img')[7]).filter")
         assert other_veil in ("0", "") and other_filter == "none", (other_veil, other_filter)
-        mine_cap = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-cap')[7]).opacity")
+        mine_cap = p.evaluate("getComputedStyle(document.querySelectorAll('.portfolio-cap')[8]).opacity")
         assert mine_cap == "1", mine_cap
-        assert p.evaluate("document.querySelectorAll('.portfolio-item')[7].querySelector('.cap-t').textContent") == "BMW"
+        assert p.evaluate("document.querySelectorAll('.portfolio-item')[8].querySelector('.cap-t').textContent") == "BMW"
 
 
 def test_grid_click_plays_transition():
     with page() as p:
         p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
-        p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(900)
-        p.locator(".portfolio-item").nth(7).click()
+        p.locator(".portfolio-item").nth(8).scroll_into_view_if_needed(); p.wait_for_timeout(900)
+        p.locator(".portfolio-item").nth(8).click()
         p.wait_for_timeout(120)
         assert "index.html" in p.url, p.url                    # still on the grid while the panel opens
         assert p.locator(".grid-trans").count() == 1
-        p.wait_for_url("**/project.html?id=7", timeout=3000)
+        p.wait_for_url("**/project.html?id=8", timeout=3000)
 
 
 def test_grid_back_restores_clean():
     with page() as p:
         p.goto(BASE + "/index.html"); p.wait_for_timeout(2600)
-        p.locator(".portfolio-item").nth(7).scroll_into_view_if_needed(); p.wait_for_timeout(900)
-        p.locator(".portfolio-item").nth(7).click(); p.wait_for_url("**/project.html?id=7", timeout=3000)
+        p.locator(".portfolio-item").nth(8).scroll_into_view_if_needed(); p.wait_for_timeout(900)
+        p.locator(".portfolio-item").nth(8).click(); p.wait_for_url("**/project.html?id=8", timeout=3000)
         p.go_back(); p.wait_for_timeout(500)
         assert p.locator(".grid-trans").count() == 0
 
@@ -209,10 +213,10 @@ def test_hero_logo_size():
 def test_detail_page():
     with page() as p:
         errors = []; p.on("pageerror", lambda e: errors.append(str(e)))
-        p.goto(BASE + "/project.html?id=7"); p.wait_for_timeout(1500)
-        assert "08 / 20" in p.inner_text(".dp-top")
-        assert p.locator(".prev-btn").get_attribute("href") == "project.html?id=6"
-        assert p.locator(".next-btn").get_attribute("href") == "project.html?id=8"
+        p.goto(BASE + "/project.html?id=8"); p.wait_for_timeout(1500)
+        assert "09 / 21" in p.inner_text(".dp-top")
+        assert p.locator(".prev-btn").get_attribute("href") == "project.html?id=7"
+        assert p.locator(".next-btn").get_attribute("href") == "project.html?id=9"
         assert p.locator(".back-btn").count() >= 1
         assert p.locator(".dp-next").count() == 0
         assert not p.locator(".project-title-bar").is_visible()   # live hides the in-content title bar
@@ -227,8 +231,8 @@ def test_detail_page():
 def test_detail_wraparound():
     with page() as p:
         p.goto(BASE + "/project.html?id=0"); p.wait_for_timeout(500)
-        assert p.locator(".prev-btn").get_attribute("href") == "project.html?id=19"
-        p.goto(BASE + "/project.html?id=19"); p.wait_for_timeout(500)
+        assert p.locator(".prev-btn").get_attribute("href") == "project.html?id=20"
+        p.goto(BASE + "/project.html?id=20"); p.wait_for_timeout(500)
         assert p.locator(".next-btn").get_attribute("href") == "project.html?id=0"
 
 
@@ -296,7 +300,7 @@ def test_no_serif_headings():   # user: drop the serif title block on detail pag
         p.goto(BASE + "/project.html?id=0"); p.wait_for_timeout(600)
         assert p.locator(".dp-hero").count() == 0
         assert "PROJECT 01" not in p.inner_text("main")
-        assert "01 / 20" in p.inner_text(".dp-top")
+        assert "01 / 21" in p.inner_text(".dp-top")
 
 
 # ---------------------------------------------------------------- runner

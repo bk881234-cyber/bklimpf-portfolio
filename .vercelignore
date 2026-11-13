@@ -7,6 +7,7 @@ backup
 tests
 docs
 CLAUDE.md
+GEMINI.md
 .superpowers
 .playwright-mcp
 deploy.ps1

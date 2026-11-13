@@ -11,9 +11,19 @@
         }, { threshold: 0.08 })
         : null;
 
+    function observeOne(el) {
+        if (io) io.observe(el); else el.classList.add('in');
+    }
+
     window.observeReveal = function (root) {
         (root || document).querySelectorAll('[data-reveal]:not(.in)').forEach(function (el) {
-            if (io) io.observe(el); else el.classList.add('in');
+            if (io && el.tagName === 'IMG' && !el.complete) {
+                var done = function () { observeOne(el); };
+                el.addEventListener('load', done, { once: true });
+                el.addEventListener('error', done, { once: true });
+            } else {
+                observeOne(el);
+            }
         });
     };
     window.observeReveal(document);
