@@ -38,13 +38,46 @@ const projectsData = [
                 <div class="project-images">
                     <img src="assets/ogt_00_hero.jpg" alt="OGT Creative Suite Hero" class="hero-image">
                 </div>
-                <div class="project-description-section">
-                    <p class="desc-main">내 작업 흐름에 맞게 직접 기획하고 개발한 웹 기반 이미지 · 보정 · 동영상 편집 툴입니다.</p>
-                    <p class="desc-sub">무거운 프로그램을 따로 켜지 않고 브라우저에서 사진 불러오기부터 디자인 편집, 인물 보정, 쇼츠 영상 제작까지 이어서 작업합니다.</p>
+
+                <!-- AI & Design Tools Highlight Section -->
+                <div class="ai-highlight-section">
+                    <div class="ai-highlight-container">
+                        <h3 class="ai-highlight-title">AI-Driven Product Design &amp; Build</h3>
+                        <p class="ai-highlight-desc">
+                            내 작업 흐름에 맞게 직접 기획하고 개발한 웹 기반 이미지 · 보정 · 동영상 편집 툴입니다.<br>
+                            무거운 프로그램을 따로 켜지 않고 브라우저에서 사진 불러오기부터 디자인 편집, 인물 보정, 쇼츠 영상 제작까지 이어서 작업합니다.
+                        </p>
+                        <div class="ai-highlight-icons">
+                            <div class="ai-icon-item">
+                                <img src="assets/안티그래비티.png" alt="안티그래비티">
+                                <span>안티그래비티</span>
+                            </div>
+                            <div class="ai-icon-item">
+                                <img src="assets/제미나이.png" alt="제미나이">
+                                <span>제미나이</span>
+                            </div>
+                            <div class="ai-icon-item">
+                                <img src="assets/클로드.png" alt="클로드">
+                                <span>클로드</span>
+                            </div>
+                            <div class="ai-icon-item">
+                                <img src="assets/클로드코드.png" alt="클로드코드">
+                                <span>클로드코드</span>
+                            </div>
+                            <div class="ai-icon-item">
+                                <img src="assets/포토샵.png" alt="포토샵">
+                                <span>포토샵</span>
+                            </div>
+                            <div class="ai-icon-item">
+                                <img src="assets/피그마.png" alt="피그마">
+                                <span>피그마</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 시작 화면 & 규격 선택 -->
-                <div class="multi-platform-section">
+                <div class="multi-platform-section section-accent-navy">
                     <div class="multi-platform-container">
                         <div class="platform-text-column">
                             <h3 class="platform-title">작업 목적에 바로 들어가는 시작 화면</h3>
@@ -75,12 +108,14 @@ const projectsData = [
                     </div>
                 </div>
 
-                <div class="project-images" style="padding-top: 70px;">
-                    <img src="assets/ogt_edit_workspace.png" alt="OGT 사진 및 텍스트 레이어 편집 화면">
+                <div class="multi-platform-section section-tint-blue" style="padding-top: 72px; padding-bottom: 72px;">
+                    <div class="project-images">
+                        <img src="assets/ogt_edit_workspace.png" alt="OGT 사진 및 텍스트 레이어 편집 화면">
+                    </div>
                 </div>
 
                 <!-- 무료 이미지 검색 -->
-                <div class="multi-platform-section">
+                <div class="multi-platform-section section-light">
                     <div class="multi-platform-container">
                         <div class="platform-text-column">
                             <h3 class="platform-title">에디터 안 무료 사진 검색</h3>
@@ -96,10 +131,10 @@ const projectsData = [
                 </div>
 
                 <!-- 템플릿 라이브러리 -->
-                <div class="multi-platform-section section-light">
+                <div class="multi-platform-section section-accent-blue">
                     <div class="multi-platform-container platform-reverse">
                         <div class="platform-text-column">
-                            <h3 class="platform-title">실무 템플릿 & 내 템플릿 저장</h3>
+                            <h3 class="platform-title">실무 템플릿 &amp; 내 템플릿 저장</h3>
                             <div class="platform-desc-box">
                                 <p class="platform-desc-highlight">카드뉴스, 유튜브 썸네일, 체크리스트, 공지 배너 등 자주 만드는 포맷을 템플릿으로 바로 불러옵니다.</p>
                                 <p class="platform-desc-detail">사진과 문구만 바꿔 빠르게 시안을 완성하고, 직접 만든 레이아웃을 '내 템플릿'으로 저장해 반복 작업을 줄였습니다.</p>
@@ -112,10 +147,10 @@ const projectsData = [
                 </div>
 
                 <!-- 이미지 보정 -->
-                <div class="multi-platform-section">
+                <div class="multi-platform-section section-light">
                     <div class="multi-platform-container">
                         <div class="platform-text-column">
-                            <h3 class="platform-title">얼굴 인식 & 정밀 이미지 보정</h3>
+                            <h3 class="platform-title">얼굴 인식 &amp; 정밀 이미지 보정</h3>
                             <div class="platform-desc-box">
                                 <p class="platform-desc-highlight">자동 보정과 픽셀 유동화(Shift+Ctrl+X), 배경 흐림, AI 지우개, 밝기·커브, LUT 색감 보정을 한 화면에 모았습니다.</p>
                                 <p class="platform-desc-detail">보정 전·후 비교 슬라이더로 변화를 바로 확인하고, 얼굴 인식 기반의 눈·코·턱선 다듬기부터 노이즈 제거·화질 개선까지 이어서 처리합니다.</p>
@@ -128,7 +163,7 @@ const projectsData = [
                 </div>
 
                 <!-- 동영상 편집 -->
-                <div class="multi-platform-section section-light">
+                <div class="multi-platform-section section-accent-dark">
                     <div class="multi-platform-container platform-reverse">
                         <div class="platform-text-column">
                             <h3 class="platform-title">쇼츠·릴스 중심 동영상 편집</h3>
