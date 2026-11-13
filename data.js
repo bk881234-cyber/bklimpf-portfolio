@@ -73,6 +73,11 @@ const projectsData = [
                                 <span>피그마</span>
                             </div>
                         </div>
+                        <div class="visit-site-wrap" style="margin-top: 38px; margin-bottom: 0;">
+                            <a href="https://image-editor-murex-phi.vercel.app/" target="_blank" class="btn-visit-site">
+                                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>OGT 에디터 바로가기
+                            </a>
+                        </div>
                     </div>
                 </div>
 
