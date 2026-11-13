@@ -309,22 +309,21 @@ header {
 
 /* About Section */
 .about-section {
-    padding: 100px 0;
-    max-width: 1400px;
+    padding: 96px 40px;
+    max-width: 1180px;
     margin: 0 auto;
 }
 
 .about-container {
     display: grid;
-    /* 가운데 캐릭터 영역을 명확히 240px로 고정하여 좌우 컬럼(1fr)이 완전한 동일 가로폭을 가지게 제어 */
-    grid-template-columns: 1fr 240px 1fr;
-    gap: 60px;
-    align-items: flex-start;
+    grid-template-columns: 1fr 250px 1fr;
+    gap: 48px;
+    align-items: stretch;
 }
 
 /* Left Column */
 .about-left {
-    padding-top: 40px;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -333,36 +332,36 @@ header {
 
 /*.about-name */
 .about-name {
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 800;
     color: var(--text-primary);
     margin-top: 0; /* Clear browser default margin to fix horizontal alignment */
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     border-bottom: 3px solid var(--text-primary);
-    padding-bottom: 12px;
+    padding-bottom: 10px;
     display: inline-block;
     letter-spacing: -1px;
 }
 
 .about-info {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .about-info p {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     letter-spacing: -0.3px;
 }
 
 .about-subheading {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 800;
     text-transform: uppercase;
     color: var(--text-primary);
     margin-top: 0; /* Clear browser default margin to fix horizontal alignment */
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     display: inline-block;
     border-bottom: 3px solid var(--text-primary);
     padding-bottom: 8px;
@@ -373,7 +372,7 @@ header {
 .hobbies-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 12px;
     width: 100%;
 }
 
@@ -382,7 +381,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 24px 16px;
+    padding: 18px 14px;
     background: #ffffff;
     border: 1px solid #eef0f2;
     border-radius: 16px;
@@ -417,22 +416,22 @@ header {
 .about-center {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     height: 100%;
-    padding-top: 60px;
+    padding-top: 0;
 }
 
 /* 수동 여백을 제거하고 absolute 배치로 캐릭터와 강아지의 완전한 수평 센터 정렬 확보 */
 .character-wrapper {
     position: relative;
-    width: 200px;
+    width: 245px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
 }
 
 .character-img {
-    width: 200px; /* 10% larger */
+    width: 245px;
     height: auto;
     position: relative;
     z-index: 2;
@@ -441,8 +440,8 @@ header {
 .dog-img {
     position: absolute;
     bottom: 0; /* Adjust relative to shoes */
-    left: -45px;  /* Move to the left so it's not tucked */
-    width: 110px; /* Scaled proportionally */
+    left: -52px;  /* Move to the left so it's not tucked */
+    width: 128px; /* Scaled proportionally */
     height: auto;
     object-fit: contain;
     z-index: 3; /* Show in front of character to prevent cropping */
@@ -450,7 +449,7 @@ header {
 
 /* Right Column */
 .about-right {
-    padding-top: 40px;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -461,25 +460,25 @@ header {
 .skills-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 12px;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 12px;
 }
 
 .skills-col {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .skills-list p {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 0;
     background: #ffffff;
     border: 1px solid #eef0f2;
-    padding: 12px 18px;
+    padding: 10px 14px;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.01);
     display: flex;
@@ -497,14 +496,14 @@ header {
 .skills-divider {
     border: none;
     border-top: 1px dashed #ccc;
-    margin: 35px 0;
+    margin: 26px 0;
     width: 100%;
 }
 
 .skill-detail {
     margin-bottom: 0;
     background: #ffffff;
-    padding: 24px;
+    padding: 18px 20px;
     border-radius: 16px;
     border: 1px solid #eef0f2;
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
@@ -519,7 +518,7 @@ header {
 .skills-details-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 16px;
     width: 100%;
 }
 
