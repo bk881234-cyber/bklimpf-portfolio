@@ -6,6 +6,29 @@
     if (!grid) return;
 
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var categoryByIndex = {
+        0: 'ai-web',   // OGT (Oh! Get Tool!)
+        1: 'ai-web',   // Web & Brand by AI
+        2: 'ui-brand', // Value Life Project
+        3: 'ai-web',   // GameAIfy
+        4: 'ui-brand', // 엔픽셀 기업문화 IR
+        5: 'game',     // 그랑사가 게임 콘텐츠
+        6: 'game',     // 그랑사가 SNS
+        7: 'game',     // 크로노오디세이
+        8: 'ui-brand', // BMW
+        9: 'ui-brand', // Canon
+        10: 'ui-brand',// 바쉐론 콘스탄틴
+        11: 'ui-brand',// 헤렌
+        12: 'ui-brand',// 프레쉬
+        13: 'ui-brand',// 델리
+        14: 'ui-brand',// Hamll
+        15: 'game',    // 콘트라
+        16: 'game',    // NCsoft
+        17: 'ui-brand',// 청량
+        18: 'game',    // 테라
+        19: 'game',    // 포트리스
+        20: 'game'     // 검은사막
+    };
 
     imageUrls.forEach(function (url, index) {
         var title = projectsData[index] ? projectsData[index].title : 'Project ' + (index + 1);
@@ -15,6 +38,7 @@
         item.className = 'portfolio-item';
         item.href = 'project.html?id=' + index;
         item.dataset.index = index;
+        item.dataset.category = categoryByIndex[index] || 'ui-brand';
         item.setAttribute('data-reveal', '');
         item.style.setProperty('--i', index % 10);
 
@@ -66,4 +90,24 @@
         if (p) p.remove();
         document.body.classList.remove('is-leaving');
     });
+
+    // Category filter tabs
+    var filterButtons = document.querySelectorAll('.portfolio-filter-bar .filter-btn');
+    if (filterButtons.length) {
+        filterButtons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var target = btn.getAttribute('data-filter');
+                filterButtons.forEach(function (b) {
+                    var active = b === btn;
+                    b.classList.toggle('active', active);
+                    b.setAttribute('aria-selected', active ? 'true' : 'false');
+                });
+                grid.querySelectorAll('.portfolio-item').forEach(function (item) {
+                    var show = target === 'all' || item.dataset.category === target;
+                    item.classList.toggle('is-filtered-out', !show);
+                    if (show) item.classList.add('in');
+                });
+            });
+        });
+    }
 })();

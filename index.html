@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | BKLimpf</title>
-    <meta name="description" content="UX/UI / Website / Graphic Designer Portfolio.">
+    <meta name="description" content="UX/UI · Website · Graphic Designer Portfolio.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BKLimpf | UX/UI · Website · Graphic Designer">
+    <meta property="og:description" content="AI 프로덕트 디자인부터 웹·브랜드·게임 그래픽까지, 임병권 디자이너의 포트폴리오입니다.">
+    <meta property="og:image" content="https://www.bklimportfolio.com/assets/logo-1000.png">
+    <meta property="og:url" content="https://www.bklimportfolio.com/">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="style.css?v=20261113">
     <link rel="stylesheet" href="hero.css?v=20261113">
@@ -27,8 +33,7 @@
                 <a href="#about" class="nav-link">About</a>
             </nav>
             <div class="social-icons">
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="mailto:bkbk8688@naver.com" class="social-link" aria-label="이메일 문의" title="bkbk8688@naver.com"><i class="far fa-envelope"></i></a>
             </div>
         </div>
     </header>
@@ -60,6 +65,12 @@
         </section>
 
         <section id="portfolio" class="portfolio-section">
+            <div class="portfolio-filter-bar" role="tablist" aria-label="작업물 카테고리 필터">
+                <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button type="button" class="filter-btn" data-filter="ai-web" role="tab" aria-selected="false">AI · Web</button>
+                <button type="button" class="filter-btn" data-filter="ui-brand" role="tab" aria-selected="false">UI/UX · Brand</button>
+                <button type="button" class="filter-btn" data-filter="game" role="tab" aria-selected="false">Game</button>
+            </div>
             <div class="portfolio-grid" id="portfolioGrid">
                 <!-- Portfolio items will be dynamically injected here to match the 4-column layout -->
             </div>
@@ -92,8 +103,8 @@
                             <p>게임, 브랜드, 쇼핑몰, 소셜 콘텐츠,<br>옥외 광고 등 다양한 디지털<br>광고매체 제작 경험.</p>
                         </div>
                         <div class="skill-detail" data-reveal style="--i:5">
-                            <h4>AI 서비스 디자인 활용</h4>
-                            <p>생성형 AI를 활용한 효율적인<br>디자인 작업 및 트렌디한 서비스<br>UI/UX 설계 능숙.</p>
+                            <h4>AI 서비스 디자인 · 구축</h4>
+                            <p>생성형 AI와 AI 코딩 툴을 결합한<br>실무형 웹 서비스 기획 및<br>프로덕트 UI/UX 구축.</p>
                         </div>
                     </div>
                 </div>
@@ -113,12 +124,14 @@
                         <div class="skills-col">
                             <p>Photoshop</p>
                             <p>Illustrator</p>
-                            <p>XD</p>
-                        </div>
-                        <div class="skills-col">
                             <p>Figma</p>
                             <p>After Effects</p>
-                            <p>AI 서비스 디자인 활용</p>
+                        </div>
+                        <div class="skills-col">
+                            <p>Antigravity</p>
+                            <p>Claude Code</p>
+                            <p>Gemini</p>
+                            <p>AI 서비스 디자인</p>
                         </div>
                     </div>
                     
@@ -150,7 +163,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>© 2025. Byungkwon Lim All rights reserved.</p>
+            <p>© 2026. Byungkwon Lim All rights reserved.</p>
         </div>
     </footer>
 
