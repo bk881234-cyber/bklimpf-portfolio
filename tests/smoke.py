@@ -59,7 +59,7 @@ def test_baseline():
         assert p.evaluate("projectsData[1].title") == "Web & Brand by AI"
         assert p.evaluate("projectsData[20].title") == "검은사막"
     for f in ["ogt_th.jpg", "ogt_00_hero.jpg", "ogt_main.jpg", "ogt_editor_work.jpg",
-              "ogt_edit_workspace.png", "ogt_free_photo.png", "ogt_templates.jpg",
+              "ogt_edit_workspace.png", "ogt_free_photo.jpg", "ogt_templates.jpg",
               "ogt_retouch_face.jpg", "ogt_video_work.jpg",
               "ai_driven_th.jpg", "VL_project_th.png", "ai_driven_02.jpg", "클로드.png",
               "logo-1000.png", "logo-160.png", "favicon.png"]:

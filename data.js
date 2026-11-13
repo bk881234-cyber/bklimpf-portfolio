@@ -90,7 +90,7 @@ const projectsData = [
                             </div>
                         </div>
                         <div class="platform-image-column">
-                            <img src="assets/ogt_free_photo.png" alt="OGT 무료 사진 검색 모달">
+                            <img src="assets/ogt_free_photo.jpg" alt="OGT 무료 사진 검색 모달">
                         </div>
                     </div>
                 </div>
